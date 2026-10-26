@@ -62,7 +62,7 @@ export function mountMapStory() {
     entries.forEach(entry => entry.element.classList.toggle('map-chapter-active', entry === chapter));
     // Hide the campus marker until the city-scale view to avoid a floating pin
     // during the globe-to-country flight.
-    pin.hidden = chapter.step < 2;
+    pin.hidden = chapter.step < 3;
     document.getElementById('nepal-legend').hidden = chapter.step >= 2;
     if (loaded) {
       setLandscapeChapter(chapter.step);

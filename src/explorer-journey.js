@@ -1,9 +1,9 @@
 // The owner-selected four-frame pixel scenes are local assets. Ordinary CSS
 // handles crossfades; this module connects the page chapters and pause controls.
 const scenes = {
-  himalayas:{step:'01 / 03',region:'HIMALAYAS',title:'Where it all begins.',description:'High in the mountains, a small stream begins its journey.'},
-  hills:{step:'02 / 03',region:'THE HILLS',title:'Finding a way through.',description:'Streams meet, wind through the hills, and carry the story downstream.'},
-  terai:{step:'03 / 03',region:'THE TERAI',title:'Into the open plains.',description:'A broad channel, low banks, and room for the river’s next chapter.'},
+  himalayas:{step:'01 / 03',region:'HIMALAYAS',title:'Where it all begins.',description:'Snow and ice feed the headwaters. A warming climate is changing their future.'},
+  hills:{step:'02 / 03',region:'THE HILLS',title:'Finding a way through.',description:'Rain, rivers, and sediment shape the hills. Intense rainfall brings erosion and landslide risks.'},
+  terai:{step:'03 / 03',region:'THE TERAI',title:'Into the open plains.',description:'The river widens across the Terai, where floods put farms and communities at risk.'},
 };
 const sections=[...document.querySelectorAll('body > [data-landscape-region]')];
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');

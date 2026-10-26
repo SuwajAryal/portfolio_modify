@@ -101,6 +101,9 @@ body > .section { padding:58px clamp(28px,4.5vw,72px) 24px; }
 .about-stat { background:#f0f3eb; border-color:var(--line); }
 .about-stat-label { font-size:.85rem !important; }
 .education-intro { font-size:1rem; line-height:1.85; color:var(--text-dim); padding-bottom:25px; }
+.climate-story { margin-top:28px; border-left:2px solid #9db49e; padding-left:20px; }
+.climate-story h3 { font-family:var(--font-heading); font-weight:500; font-size:1.4rem; margin-bottom:14px; }
+.climate-story p { font-size:1rem; line-height:1.85; color:var(--text-dim); margin-bottom:16px; }
 .education-step { min-height:60svh; }
 .education-step .card-title { font-size:1.2rem; }
 .education-step.map-chapter-active .card { background:#f5f7ef; border-color:#9db49e; }

@@ -51,7 +51,7 @@ import { createIcons, MapPin, Mail, Phone, ArrowUpRight, ArrowDown, Download,
   `).join('');
 
   // ── Education ──
-  // Read the education chapter chronologically: bachelor’s, then master’s.
+  // Data is newest first; reverse a copy to tell the story from school onward.
   $('eduTimeline').innerHTML = d.education.map((entry, index) => ({ entry, index })).reverse().map(({ entry: e, index }) => `
     <div class="tl-item education-step" data-education-index="${index}">
       <div class="tl-dot"></div>
@@ -75,7 +75,7 @@ import { createIcons, MapPin, Mail, Phone, ArrowUpRight, ArrowDown, Download,
       <p class="experience-year">${e.startYear}</p>
       <div class="card">
         <div class="card-top">
-          <span class="card-title">${e.role} — ${e.company}</span>
+          <span class="card-title">${e.role} · ${e.company}</span>
           <span class="card-badge badge-tag">${e.period}</span>
         </div>
         <p class="card-story">${e.story}</p>
@@ -181,6 +181,7 @@ import { createIcons, MapPin, Mail, Phone, ArrowUpRight, ArrowDown, Download,
     <p class="footer-quote">"${d.footerQuote}"</p>
     <p class="footer-copy">&copy; ${new Date().getFullYear()} ${d.name}. Built with curiosity and code.</p>
     <p class="source-credit"><a href="./sources.html">Community code & geographic data credits ↗</a></p>
+    <p class="source-credit"><a href="./archive/portfolio-2026-10-26/">Previous portfolio · October 2026 ↗</a></p>
   `;
 
   // ── Mobile Nav ──

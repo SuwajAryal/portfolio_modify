@@ -13,7 +13,7 @@ export const DATA = {
   tagline: "I design how water moves, from rivers to turbines.",
   researchProfile: {
     focus: "I study how rivers move water and sediment.",
-    introduction: "My research combines physical principles and machine learning to predict suspended sediment in Himalayan river basins—and to understand when those predictions can be trusted.",
+    introduction: "My research combines physical principles and machine learning to predict suspended sediment in Himalayan river basins. I also examine when those predictions can be trusted.",
     status: "M.Sc. Hydropower Engineering · Pulchowk Campus, Tribhuvan University · Ongoing",
     opportunity: "I’m seeking PhD opportunities in water resources and hydroinformatics, with a focus on physics-guided learning and reliable river models.",
     themes: [
@@ -72,7 +72,7 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
     {
       degree: "M.Sc. in Hydropower Engineering",
       institution: "Pulchowk Campus, Tribhuvan University",
-      period: "2024 – Present",
+      period: "2024 to Present",
       status: "Ongoing",
       highlights: [
         "Aggregate: 86%; within the top 5%",
@@ -84,13 +84,27 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
     {
       degree: "B.E. in Civil Engineering",
       institution: "Pulchowk Campus, Tribhuvan University",
-      period: "2018 – 2023",
+      period: "2018 to 2023",
       status: "Completed",
       highlights: [
         "Aggregate: 72.5%; within the top 20%",
         "Full merit scholarship through national-level entrance",
         "Final Year Project: Complete irrigation system design from headwork to canal network",
       ],
+    },
+    {
+      degree: "Higher Secondary Education (+2)",
+      institution: "Kathmandu Model College, Bagbazar, Kathmandu",
+      period: "2018",
+      status: "Completed",
+      highlights: ["CGPA: 3.55 out of 4"],
+    },
+    {
+      degree: "School Leaving Certificate (SLC)",
+      institution: "Reliance International Academy, Kapan, Kathmandu",
+      period: "2015",
+      status: "Completed",
+      highlights: ["GPA: 3.75 out of 4"],
     },
   ],
 
@@ -102,7 +116,7 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
       role: "Lecturer and Technical Instructor",
       startYear: 2026,
       company: "Institute of Engineering, Pulchowk Campus",
-      period: "2026 – Present",
+      period: "2026 to Present",
       story: "Teaching applied hydrological modelling, hydraulic modelling, and programming in hydrology.",
       points: [
         "SWAT catchment modelling in relation to climate change scenarios",
@@ -128,7 +142,7 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
       role: "Civil Design Engineer",
       startYear: 2023,
       company: "Madi Consultancy Pvt. Ltd.",
-      period: "2023 – 2024 · Short-term",
+      period: "2023 to 2024 · Short-term",
       story: "Joined after obtaining my engineering license to design water distribution systems for rural communities.",
       points: [
         "Designed irrigation and rural water supply distribution networks",
@@ -160,10 +174,10 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
       type: "M.Sc. Thesis Research",
       description: "Research at the Department of Hydropower Engineering, Pulchowk Campus, comparing machine-learning and physics-guided approaches to suspended sediment prediction in flashy Himalayan catchments.",
       details: [
-        "Benchmarked 10 models using West Rapti hydro-meteorological records from 2016–2023, Optuna tuning, a held-out 2023 test year, and five-fold forward-chaining cross-validation.",
+        "Benchmarked 10 models using West Rapti hydro-meteorological records from 2016 to 2023, Optuna tuning, a held-out 2023 test year, and five-fold forward-chaining cross-validation.",
         "Random Forest achieved the strongest overall test performance: R² = 0.646, RMSE = 439 mg/L, and PBIAS = −5.06%.",
         "Developed a physics-guided neural network incorporating Yang’s sediment-transport capacity theory, a wash-load minimum, and mass conservation. Test R² increased from 0.477 to 0.546 relative to an unconstrained MLP; mean cross-validation R² improved from −0.922 to +0.267.",
-        "All evaluated models performed poorly at high flows (Q ≥ 240.2 m³/s; high-flow R² from +0.04 to −2.08). Previous-day SSC accounted for 48–95% of predictive importance, revealing the risk of confusing autoregressive dependence with reliable hydro-meteorological forecasting.",
+        "All evaluated models performed poorly at high flows (Q ≥ 240.2 m³/s; high-flow R² from +0.04 to −2.08). Previous-day SSC accounted for 48 to 95% of predictive importance, revealing the risk of confusing autoregressive dependence with reliable hydro-meteorological forecasting.",
       ],
     },
     {
@@ -211,7 +225,7 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
     {
       type: "Published Conference Paper · September 2026",
       title: "Suspended Sediment Concentration and Load Prediction in the West Rapti River Basin: A Comparative Study of Machine Learning Approaches",
-      description: "Aryal, S., & Regmi, R. K. (2026). Everest Advances in Science and Technology, 2(2), 44–61. CEISD 2026. Comparative sediment prediction research covering machine learning, deep learning, and tree-based approaches in Himalayan catchments.",
+      description: "Aryal, S., & Regmi, R. K. (2026). Everest Advances in Science and Technology, 2(2), 44 to 61. CEISD 2026. Comparative sediment prediction research covering machine learning, deep learning, and tree-based approaches in Himalayan catchments.",
       url: "https://doi.org/10.3126/east.v2i2.99464",
       linkLabel: "View article via DOI",
     },
@@ -231,7 +245,7 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
     { title: "Fully Funded M.Sc. Scholarship", description: "Government scholarship for graduate study, awarded through top-tier placement in the national engineering competitive examination." },
     { title: "Undergraduate Merit Scholarship", description: "Highly competitive, fully funded government seat for the bachelor’s programme through the nationwide IOE entrance examination." },
     { title: "Mahatma Gandhi Scholarship", description: "Merit-based scholarship from the Embassy of India, Kathmandu, recognizing academic performance during higher secondary education (+2)." },
-    { title: "Top 10 · National Physics–Mathematics Olympiad", description: "Placed among the top 10 nationwide in a quantitative problem-solving competition at IOE, Pulchowk Campus, among hundreds of secondary science students." },
+    { title: "Top 10 · National Physics and Mathematics Olympiad", description: "Placed among the top 10 nationwide in a quantitative problem-solving competition at IOE, Pulchowk Campus, among hundreds of secondary science students." },
   ],
   languages: [
     { title: "Nepali", description: "Native proficiency." },
@@ -268,7 +282,7 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
     { category: "CFD & Modelling",                    items: ["OpenFOAM", "RESCON 2"] },
     { category: "Academic Tools",                     items: ["Excel", "Zotero", "LaTeX", "Word", "PowerPoint"] },
     { category: "Machine Learning & Scientific Python", items: ["Regression", "Random Forest", "Gradient Boosting", "Neural Networks", "scikit-learn", "pandas", "NumPy", "Matplotlib", "Optuna"] },
-    { category: "Applied Competencies", items: ["HEC-RAS 1D/2D", "Dam-Break Analysis", "Advanced Excel", "Technical Reports", "Academic Manuscript Drafting", "OpenFOAM — foundational level"] },
+    { category: "Applied Competencies", items: ["HEC-RAS 1D/2D", "Dam-Break Analysis", "Advanced Excel", "Technical Reports", "Academic Manuscript Drafting", "OpenFOAM, foundational level"] },
   ],
 
   // ──────────────────────────────────────────────────
@@ -335,5 +349,5 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
   // ──────────────────────────────────────────────────
   //  FOOTER
   // ──────────────────────────────────────────────────
-  footerQuote: "Water is the driving force of all nature. - Leonardo da Vinci",
+  footerQuote: "Water is the driving force of all nature. · Leonardo da Vinci",
 };
