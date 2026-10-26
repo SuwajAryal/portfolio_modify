@@ -41,12 +41,15 @@ export function mountMapStory() {
     return;
   }
 
-  const pin = document.createElement('div');
-  pin.className = 'campus-pin';
-  pin.innerHTML = '<span></span><b>Pulchowk Campus</b>';
+  // MapLibre's standard teardrop marker anchors its tip to the map position.
+  // Move one marker with the active chapter, so the label always matches it.
+  const marker = new Marker({ color: '#285c57', scale: 1.05 })
+    .setLngLat(CAMPUS_CENTER).addTo(map);
+  const pin = marker.getElement();
+  pin.classList.add('education-pin');
+  const pinLabel = document.createElement('b');
+  pin.append(pinLabel);
   pin.setAttribute('aria-hidden', 'true');
-  // The coordinate anchors to the circle, not the caption below it.
-  new Marker({ element: pin, anchor: 'center' }).setLngLat(CAMPUS_CENTER).addTo(map);
   pin.hidden = true;
   map.getCanvas().setAttribute('aria-hidden', 'true');
 
@@ -60,9 +63,11 @@ export function mountMapStory() {
       stop.classList.toggle('active', index <= chapter.step);
     });
     entries.forEach(entry => entry.element.classList.toggle('map-chapter-active', entry === chapter));
-    // Hide the campus marker until the city-scale view to avoid a floating pin
-    // during the globe-to-country flight.
-    pin.hidden = chapter.step < 3;
+    pin.hidden = !chapter.markerLabel;
+    if (chapter.markerLabel) {
+      marker.setLngLat(chapter.camera.center);
+      pinLabel.textContent = chapter.markerLabel;
+    }
     document.getElementById('nepal-legend').hidden = chapter.step >= 2;
     if (loaded) {
       setLandscapeChapter(chapter.step);

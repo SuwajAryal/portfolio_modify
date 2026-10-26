@@ -116,7 +116,7 @@ The earlier shaded Liberty basemap is restored. All views remain north-up and
 straight down. Central Nepal, Kathmandu, and the campus chapters share exactly
 the same centre, so the education transition changes zoom without a north/south
 detour. The regional view is wider to include Himalayan ridges above the valley.
-The marker anchors to its circle independently of the caption below it.
+The marker now uses MapLibre’s standard teardrop pin, anchored at its tip independently of the label.
 
 The map requests remote style, font, sprite, and vector tile resources from
 OpenFreeMap, plus elevation tiles from Mapterhorn. It does not need a private API key or collect visitor location.
@@ -127,4 +127,10 @@ as public/community-licenses.txt.
 
 The river story draws on the World Bank Group's [Nepal Country Climate and Development Report (2022)](https://www.ifc.org/en/insights-reports/2022/nepal-country-climate-and-development-report) and [Climate Change Technical Note (2024)](https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099700403182421281). The text describes vulnerability, glacier-related hazards, erosion, landslides, and downstream flooding without assigning Nepal a fixed global rank.
 
-SLC and +2 details were supplied by Suwaj. The Kapan and Bagbazar cameras show approximate neighbourhoods without school-building pins. The previous site's original files are retained under public/archive/portfolio-2026-10-26.
+SLC and +2 details were supplied by Suwaj. The Kapan and Bagbazar chapters now use labelled campus pins. The previous site's original files are retained under public/archive/portfolio-2026-10-26.
+
+## Education pin locations
+
+Reliance International Academy: [85.3544026, 27.7300081], resolved from the school’s official contact map at https://riaschool.edu.np/contact/ (Milan Chowk Galli, Budhanilkantha). The Reliance Education Network distinguishes this Kapan school from its Saraswatinagar +2 campus: https://www.ren.org.np/.
+
+Kathmandu Model College (+2): [85.3190, 27.7064], approximate Bagbazar campus position. The +2 programme and address are confirmed at https://ktmmodelcollege.edu.np/contact/; the public campus listing is https://nepal.worldplaces.me/schools-in-kathmandu/32222712-kathmandu-model-college-official.html. These pins identify campuses, not surveyed entrances.

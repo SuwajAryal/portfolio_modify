@@ -101,7 +101,7 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
     },
     {
       degree: "School Leaving Certificate (SLC)",
-      institution: "Reliance International Academy, Kapan, Kathmandu",
+      institution: "Reliance International Academy, Milan Chowk, Kapan, Kathmandu",
       period: "2015",
       status: "Completed",
       highlights: ["GPA: 3.75 out of 4"],

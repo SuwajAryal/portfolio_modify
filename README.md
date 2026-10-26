@@ -65,7 +65,7 @@ The earlier research design is preserved in the experiment repository's `archive
 
 ## Map and artwork notes
 
-The school views show the Kapan and Bagbazar neighbourhoods. The Pulchowk marker is an approximate campus location, not a surveyed building position. The river lines show mapped geography, not live flow measurements.
+The education map uses labelled pin markers for Reliance International Academy at Milan Chowk, Kapan, Kathmandu Model College in Bagbazar, and Pulchowk Campus. Campus positions are approximate map locations, not surveyed building entrances. The river lines show mapped geography, not live flow measurements.
 
 The map and Google Fonts need an internet connection. The written content and local illustrations remain available if the map cannot load. Animation can be paused, and reduced-motion preferences are respected.
 
