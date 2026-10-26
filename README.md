@@ -9,10 +9,10 @@ schools, degree-specific buildings, or personal history have been invented.
 
 ## Community components
 
-- MapLibre GL JS: satellite raster rendering, terrain, hillshade, and camera transitions.
+- MapLibre GL JS: map rendering, terrain, hillshade, and camera transitions.
 - Official MapLibre scroll-to-location example: the chapter-based approach.
-- EOX: actual cloudless Sentinel satellite imagery, original 2016 layer, CC BY 4.0.
-- OpenFreeMap: hosted Noto Sans font glyphs for geographic labels.
+- OpenFreeMap: the restored Liberty map style, geographic tiles, and label fonts.
+- OpenStreetMap and OpenMapTiles: underlying map data and cartography.
 - Mapterhorn: open elevation tiles used for Himalayan relief and 3D terrain.
 - Natural Earth: Nepal's detailed boundary, regional river paths, and mountain labels.
 - Motion and Lucide: section transitions and interface icons.
@@ -25,7 +25,7 @@ website's credits page for source links and notices.
 ## How it behaves
 
 1. Introduction: Nepal fits in view on desktop and phones, outlined in gold with neighbouring areas muted. A clear NEPAL label and introduction establish where I am from immediately.
-2. About: the camera moves closer to Himalayan relief and mapped river corridors.
+2. About: a wider central Nepal view includes Himalayan relief and river corridors, centred on the same coordinate as the Kathmandu chapter.
 3. Education heading: the Kathmandu Valley comes into view.
 4. Bachelor’s card: the camera moves into the Pulchowk Campus area.
 5. Master’s card: the same campus remains in focus for postgraduate study.
@@ -33,7 +33,8 @@ website's credits page for source links and notices.
 The map stays beside the story on desktop and above the reading area on phones.
 There are no drag/zoom controls: ordinary page scrolling controls the destinations.
 Every camera view is straight down and north-up, with rotation and padding reset.
-Kathmandu and both campus views share the same campus-area centre. The pin is
+Central Nepal, Kathmandu, and both campus views share the same campus-area centre,
+so the transition into the valley only zooms and never detours north first. The pin is
 anchored to its circle, independently of its caption, to prevent a visual offset.
 Pause journey freezes the camera; Resume catches up with the current section.
 Reduced-motion preferences change destinations immediately without camera flights.
@@ -47,13 +48,9 @@ Mountain relief comes from elevation data, with 1.35× vertical exaggeration for
 legibility. River paths are geographic features, not live discharge or simulated
 flow. Natural Earth is generalised cartography and omits smaller tributaries.
 Landscape overlays fade before the campus scene, where terrain is flattened for
-a consistent overhead photograph. Road maps and extruded buildings are removed.
-
-The imagery is an older 2016–2017 mosaic, not a live or recent photograph. The
-public source is good for regional terrain, but cannot show current or sharply
-detailed campus buildings. The campus view therefore shows its surrounding area
-with a centred pin, capped at zoom 13, rather than suggesting
-detail beyond the source. EOX's full credit is always visible on screen.
+a consistent overhead map. The earlier shaded Liberty map is restored, with
+community source attribution visible. The campus view shows its surrounding area
+with a centred pin.
 
 ## Run locally
 
@@ -83,7 +80,6 @@ repository does not automatically publish a website or change the original site.
 | index.html | Story structure, map container, and reading sections |
 | src/map-chapters.js | Destinations, zoom levels, captions, and section selectors |
 | src/map-story.js | Connects scroll position to MapLibre camera flights |
-| src/imagery-style.js | Photographic EOX raster source, year, zoom limit, and required credit |
 | src/nepal-landscape.js | Adds real terrain, hillshade, the Nepal spotlight, river paths, and mountain labels |
 | public/data/nepal-geography.geojson | Small regional extract from the cited public-domain Natural Earth sources |
 | scripts/prepare-nepal-data.mjs | Recreates that extract from pinned source files; full downloads stay in the ignored .cache folder |

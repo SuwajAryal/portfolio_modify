@@ -1,11 +1,10 @@
 // Uses MapLibre's official scroll-to-location and terrain examples.
-// Satellite imagery: EOX; terrain: Mapterhorn; overlays: Natural Earth.
+// Map style: OpenFreeMap; terrain: Mapterhorn; overlays: Natural Earth.
 import { Map, Marker, setWorkerUrl } from 'maplibre-gl';
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { CHAPTERS, CAMPUS_CENTER } from './map-chapters';
 import { addNepalLandscape } from './nepal-landscape';
-import { IMAGERY_STYLE } from './imagery-style';
 
 setWorkerUrl(workerUrl);
 
@@ -30,10 +29,10 @@ export function mountMapStory() {
   try {
     map = new Map({
       container,
-      style: IMAGERY_STYLE,
+      style: 'https://tiles.openfreemap.org/styles/liberty',
       ...CHAPTERS[0].camera,
       interactive: false, // Scrolling controls the story; the map never traps input.
-      attributionControl: { compact: false }, // Keep imagery credits visible in screenshots too.
+      attributionControl: { compact: false }, // Keep community source credits visible.
       maxPixelRatio: 1.5,
     });
   } catch {
@@ -78,7 +77,7 @@ export function mountMapStory() {
           bearing: 0, maxZoom: 6.8,
         });
         if (fitted) camera = { ...camera, ...fitted, zoom: fitted.zoom - .1, pitch:0, bearing:0 };
-      } else if (phone.matches && chapter.step === 1) camera.zoom = 6.6;
+      } else if (phone.matches && chapter.step === 1) camera.zoom = 5.7;
       map.stop();
       if (immediate || preference.matches) map.jumpTo(camera);
       // Direct camera interpolation avoids an arcing flight, changing rotation,
@@ -109,6 +108,12 @@ export function mountMapStory() {
 
   map.on('style.load', () => {
     map.setProjection({ type: 'mercator' });
+    // Preserve place labels while omitting optional POI sprite variants.
+    for (const layer of map.getStyle().layers) {
+      if (layer.type === 'symbol' && layer.layout?.['icon-image']) {
+        map.setLayoutProperty(layer.id, 'icon-image', null);
+      }
+    }
   });
   map.on('load', async () => {
     loaded = true;

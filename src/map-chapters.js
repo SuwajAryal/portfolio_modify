@@ -7,10 +7,11 @@ export const CHAPTERS = [
   { selector: '#hero', step: 0, place: 'NEPAL · MY HOME', title: 'Where mountains meet water.', countryWide: true,
     description: 'Himalayan headwaters. River systems. The landscape behind my interest in water and hydropower.',
     camera: { center: [84.1, 28.15], zoom: 5.7, pitch: 0, bearing: 0 } },
-  { selector: '#about', step: 1, place: 'UPPER CENTRAL HIMALAYAS · NEPAL', title: 'From the mountains, downstream.',
-    description: 'Himalayan ridges and headwaters in upper central Nepal, north of Kathmandu.',
-    // Keep this view near Kathmandu's longitude so the next zoom moves mostly south.
-    camera: { center: [85.35, 28.35], zoom: 7.3, pitch: 0, bearing: 0 } },
+  { selector: '#about', step: 1, place: 'CENTRAL NEPAL · HIMALAYAN HEADWATERS', title: 'From the mountains, downstream.',
+    description: 'A wider view of central Nepal: Himalayan ridges, river corridors, and the Kathmandu Valley below.',
+    // Share the valley's exact centre: the next chapter only zooms in.
+    // A wider view includes the mountains without moving the camera into Tibet.
+    camera: { center: campus, zoom: 6.5, pitch: 0, bearing: 0 } },
   { selector: '#education', step: 2, place: 'KATHMANDU VALLEY', title: 'Where I studied.',
     description: 'Pulchowk Campus, Tribhuvan University. Lalitpur, Nepal.',
     camera: { center: campus, zoom: 11, pitch: 0, bearing: 0 } },
