@@ -49,7 +49,7 @@ function Landscape({ moving, pointer }) {
     const positions = new Float32Array(65 * 3);
     for (let i = 0; i < 65; i++) {
       const p = river.getPoint(i / 65);
-      positions.set([p.x, p.y + 0.09, p.z], i * 3);
+      positions.set([p.x, p.y + 0.17, p.z], i * 3);
     }
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     return geometry;
@@ -64,7 +64,7 @@ function Landscape({ moving, pointer }) {
     const position = particles.current.geometry.attributes.position;
     for (let i = 0; i < position.count; i++) {
       const p = river.getPoint((i / position.count + phase.current) % 1);
-      position.setXYZ(i, p.x + Math.sin(i * 3.1) * 0.06, p.y + 0.09, p.z);
+      position.setXYZ(i, p.x + Math.sin(i * 3.1) * 0.06, p.y + 0.17, p.z);
     }
     position.needsUpdate = true;
   });
