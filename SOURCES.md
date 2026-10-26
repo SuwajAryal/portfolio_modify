@@ -2,6 +2,24 @@
 
 No AI-generated images, models, textures, or terrain are used.
 
+## Reused background media
+
+- Real video: “Trishuli River at Pida Village, Dhading District, Nepal”, Muhammad
+  Saddam Hussein, 23 August 2026. CC BY 4.0. Source:
+  https://commons.wikimedia.org/wiki/File:Trishuli_River_at_Pida_Village,_Dhading_District,_Nepal.webm
+  Streamed using the existing 480p VP9 transcode, muted, looped, cropped, and
+  displayed beneath a colour overlay. No video file is bundled in the repo.
+- Existing 2D animation: “Cold Mountain Background”, Felipe Da Silva Pinho.
+  https://lottiefiles.com/free-animation/cold-mountain-background-5t8uh8iJBQ
+  Original unmodified JSON: https://assets-v2.lottiefiles.com/a/8c483b7a-116a-11ee-ae31-a77a03f91f68/WMaeQ2fkWm.json
+  Lottie Simple License, included at public/landscape/LICENSE.txt.
+  The generic artwork is not presented as actual Nepal geography.
+- Player: https://github.com/airbnb/lottie-web (MIT). Dependency notices are
+  included by the existing build process. No React or 3D background is added.
+
+Snow, green, and sand page colours follow the mountains, hills, and Terai concept.
+These media do not simulate a connected river flowing through all three regions.
+
 | Part | Source | License / attribution |
 | --- | --- | --- |
 | Map renderer and terrain | https://github.com/maplibre/maplibre-gl-js | BSD-3-Clause; full installed notice included in public/community-licenses.txt |

@@ -1,0 +1,52 @@
+/* Snow, forest, and alluvial-sand colours support the sourced landscape media. */
+:root {
+  --bg: #eef3ef; --bg2: #e6eee6; --bg-card: #ffffffed; --bg-card-h: #f8fbf6;
+  --accent: #286754; --accent2: #437666; --accent3: #8b6635;
+  --text: #334b44; --text-dim: #50665d; --text-bright: #173f34;
+}
+body { background: #eef3ef; color: var(--text); isolation: isolate; }
+.landscape-stage { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: #edf3ed; }
+.landscape-stage video, #illustrated-background { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .42; }
+#illustrated-background { opacity: .32; }
+.landscape-stage::after { content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg,#f1f5f1ed,#eef4edd9 45%,#edf3ed8c); transition: background 1.2s; }
+body[data-region="hills"] .landscape-stage::after { background: linear-gradient(90deg,#e8eee3ed,#e8eee3d6 45%,#dde9da8c); }
+body[data-region="terai"] .landscape-stage::after { background: linear-gradient(90deg,#f3eedfed,#f3eedfd6 45%,#e9e3cf8c); }
+nav { background: #f7faf4f0; border-color: #254d3520; }
+.nav-links a { color: #344e43; }
+.nav-links .btn { border-color: #366b55 !important; color: #285540 !important; }
+.hero-greeting, .research-type, .section-number { color: #785524; }
+.hero h1 span:last-child, .hero-typed, .about-text .lead { color: #286754; }
+.hero-tagline, .hero .chip, .hero-disciplines, .scroll-cue, .about-text p,
+.research-details, .academic-note, .education-intro { color: #465e51; }
+.hero-disciplines, .section-line { border-color: #254d3528; }
+.section-line { background: #254d3528; }
+.card, .about-stat, .future-box { background: #fffffff0; border-color: #355c3f28; box-shadow: 0 6px 30px #314c2f06; }
+.card:hover, .education-step.map-chapter-active .card { background: #f9fcf4; border-color: #46826780; }
+.about-stat-value, .academic-link, .source-credit a { color: #286754; }
+.interest-pill, .pill { background: #f6faf1d9; border-color: #416a472b; color: #315741; }
+.btn-primary { background: #306c55; border-color: #306c55; color: #fffdf6; }
+.btn-primary:hover { background: #225640; color: #fffdf6; }
+.btn-outline { color: #315741; border-color: #31574166; }
+.beyond-icon { background: #e5eede !important; color: #315741; }
+.manuscript-list { color: #365447; }
+.journey-map { background: #f3f5ed; border-color: #355c3f38; box-shadow: 0 14px 40px #314c2f12; }
+.journey-map-caption { background: #f3f5ed; }
+.journey-map-caption h2 { color: #173f34; }
+.journey-kicker { color: #785524; }
+#journey-description, .nepal-legend, #journey-hint, .journey-source { color: #405d50; }
+.journey-stops span { background: #31574133; }
+.journey-stops span.active { background: #306c55; }
+#journey-pause { background: #e4eddf; color: #254d3b; border-color: #31574155; }
+.tl-dot { background: #eef3e9; border-color: #306c55; }
+.experience-year { color: #7e5b2d; font-size: 1.1rem; font-weight: 600; margin-bottom: .8rem; }
+.landscape-controls { border: 0; padding: 0; margin: 2rem 0 0; max-width: 480px; }
+.landscape-controls legend { color: #355443; font-size: .7rem; letter-spacing: .04em; margin-bottom: .7rem; }
+.landscape-options { display: flex; flex-wrap: wrap; gap: .4rem; }
+.landscape-options button { border: 1px solid #355c3f40; border-radius: 4px; background: #f7faf2e6;
+  color: #335640; padding: .5rem .7rem; font: inherit; font-size: .7rem; cursor: pointer; }
+.landscape-options button[aria-pressed="true"] { background: #306c55; color: #fff; border-color: #306c55; }
+#landscape-note, #landscape-credit { font-size: .65rem; line-height: 1.7; color: #465e51; margin-top: .65rem; }
+#landscape-credit { display: inline-block; text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 768px) { .nav-links { background: #f7faf4; } .landscape-stage video { opacity: .26; } }
+@media (prefers-reduced-motion: reduce) { .landscape-stage::after { transition: none; } }

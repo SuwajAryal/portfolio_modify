@@ -89,6 +89,7 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
   experience: [
     {
       role: "Lecturer and Technical Instructor",
+      startYear: 2026,
       company: "Institute of Engineering, Pulchowk Campus",
       period: "2026 – Present",
       story: "Teaching applied hydrological modelling, hydraulic modelling, and programming in hydrology.",
@@ -100,6 +101,7 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
     },
     {
       role: "Intern / Trainee Engineer",
+      startYear: 2024,
       company: "NCER (Nepal Center for Environmental Research), Kathmandu",
       period: "2024 · ~2.5 months",
       story: "Worked as an intern on international hydraulic projects, gaining exposure to global engineering standards and US-based terrain modification studies.",
@@ -113,6 +115,7 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
     },
     {
       role: "Civil Design Engineer",
+      startYear: 2023,
       company: "Madi Consultancy Pvt. Ltd.",
       period: "2023 – 2024 · Short-term",
       story: "Joined after obtaining my engineering license to design water distribution systems for rural communities.",
@@ -124,6 +127,7 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
     },
     {
       role: "Freelance Engineer",
+      startYear: 2025,
       company: "Independent",
       period: "2025 · Project-based",
       story: "Managed independent projects, ranging from sizing hydropower components to 2D modelling of critical river systems.",

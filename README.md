@@ -24,6 +24,16 @@ website's credits page for source links and notices.
 
 ## How it behaves
 
+The lighter page palette progresses from snow to hill-green to Terai-sand.
+The hero provides a comparison between real Trishuli River footage, an existing
+2D community mountain animation, and a still background. These sourced assets
+are not a connected mountains-to-plains simulation. Backgrounds pause in hidden
+tabs, offer a Still option, and default to still for reduced-motion preferences.
+The 2D player loads only when selected; video is streamed rather than bundled.
+Experience is sorted by confirmed start year, newest first (2026, 2025, 2024,
+2023), while the education map retains its bachelor’s-to-master’s sequence.
+Undated projects and honours do not receive invented dates.
+
 1. Introduction: Nepal fits in view on desktop and phones, outlined in gold with neighbouring areas muted. A clear NEPAL label and introduction establish where I am from immediately.
 2. About: a wider central Nepal view includes Himalayan relief and river corridors, centred on the same coordinate as the Kathmandu chapter.
 3. Education heading: the Kathmandu Valley comes into view.

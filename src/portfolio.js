@@ -57,9 +57,11 @@ import { createIcons, MapPin, Mail, Phone, ArrowUpRight, ArrowDown, Download,
   `).join('');
 
   // ── Experience ──
-  $('expTimeline').innerHTML = d.experience.map(e => `
+  // Sort a copy: editing the data file cannot accidentally scramble the timeline.
+  $('expTimeline').innerHTML = [...d.experience].sort((a, b) => b.startYear - a.startYear).map(e => `
     <div class="tl-item">
       <div class="tl-dot"></div>
+      <p class="experience-year">${e.startYear}</p>
       <div class="card">
         <div class="card-top">
           <span class="card-title">${e.role} — ${e.company}</span>
