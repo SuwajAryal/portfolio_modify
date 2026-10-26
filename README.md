@@ -74,6 +74,15 @@ repository does not automatically publish a website or change the original site.
 
 ## Where to edit
 
+The academic content has been expanded from the supplied
+`Suwaj_Aryal_CV_Academic_final.docx`. Existing biography, projects, skills, and
+interests are retained, with additional teaching, thesis findings, publications,
+manuscripts, honours, affiliations, and languages in `data.js`. The former
+conference submission now appears under its published title and status from the
+new CV. Manuscripts are listed separately from published work. Master’s completion
+is not inferred from the CV’s 2024–2026 date range. The existing downloadable PDF
+is unchanged; the Word source is not bundled with the website.
+
 | File | Purpose |
 | --- | --- |
 | data.js | Your biography, education, projects, and contact information |

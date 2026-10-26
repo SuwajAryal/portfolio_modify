@@ -60,6 +60,15 @@ nav { background: rgba(8,21,31,.94); border-bottom: 1px solid #ffffff0d; backdro
 .research-type { color: #d5bd90; font-size: .58rem; letter-spacing: .12em; }
 .research-title { font-size: 1.12rem; line-height: 1.5; margin: .8rem 0; font-weight: 500; }
 .research-desc { line-height: 1.8; font-size: .82rem; }
+.research-details { padding-left: 1.2rem; color: #9fb2c0; font-size: .82rem; line-height: 1.85; margin-top: 1rem; }
+.research-details li + li { margin-top: .8rem; }
+.academic-link { display: inline-block; margin-top: 1.2rem; color: #a4d9ce; text-underline-offset: 4px; }
+.academic-subheading { font-size: 1.1rem; font-weight: 500; margin: 2.5rem 0 1rem; }
+.academic-note { color: #9fb2c0; font-size: .85rem; line-height: 1.85; margin: 1rem 0; }
+.manuscript-list { padding-left: 1.3rem; color: #b7cbd3; line-height: 1.85; }
+.manuscript-list li { padding-left: .4rem; margin: 1rem 0; }
+.research-card { overflow-wrap: anywhere; }
+#trainingCards { display: grid; gap: 1rem; }
 .tl-dot { border-color: #81bdb3; }
 .interest-pill { background: transparent; border-color: #ffffff1a; color: #a4c8c7; font-size: .8rem; }
 .future-box { border-radius: 6px; background: #102632; border-color: #ffffff14; }

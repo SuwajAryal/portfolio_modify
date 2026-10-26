@@ -77,11 +77,27 @@ import { createIcons, MapPin, Mail, Phone, ArrowUpRight, ArrowDown, Download,
   `).join('');
 
   // ── Research Projects ──
+  // Reuse the same readable card layout for the additional academic sections.
+  function academicCard(entry) {
+    return `<article class="card research-card">
+      ${entry.type ? `<p class="research-type">${entry.type}</p>` : ''}
+      <h3 class="research-title">${entry.title}</h3>
+      <p class="research-desc">${entry.description}</p>
+      ${entry.url ? `<a class="academic-link" href="${entry.url}" target="_blank" rel="noopener noreferrer">${entry.linkLabel} ↗</a>` : ''}
+    </article>`;
+  }
+  $('publicationsGrid').innerHTML = d.publications.map(academicCard).join('');
+  $('manuscriptList').innerHTML = d.manuscripts.map(title => `<li>${title}</li>`).join('');
+  $('honorsGrid').innerHTML = d.honors.map(academicCard).join('');
+  $('languagesGrid').innerHTML = d.languages.map(academicCard).join('');
+  $('affiliationsGrid').innerHTML = d.affiliations.map(academicCard).join('');
+  $('referencesNote').textContent = d.referencesNote;
   $('researchGrid').innerHTML = d.research.map(r => `
     <div class="card research-card">
       <p class="research-type">${r.type}</p>
       <h3 class="research-title">${r.title}</h3>
       <p class="research-desc">${r.description}</p>
+      ${r.details ? `<ul class="research-details">${r.details.map(detail => `<li>${detail}</li>`).join('')}</ul>` : ''}
     </div>
   `).join('');
 
