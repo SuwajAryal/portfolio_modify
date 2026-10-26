@@ -17,6 +17,9 @@ PNG stills. The sheets were split into equal 2×2 frame cells, cropped by two
 pixels at each edge to exclude grid seams, downsampled using nearest-neighbour
 sampling, and packaged at 48 colours with 350 ms per frame. This is an artistic
 journey, not a mapped river network, a physical flow model, or actual footage.
+The selected Terai sheet was subsequently extended into a portrait river vignette,
+retaining the fair-skinned canoe character and adding low banks and flat farmland.
+Its irregular navy outer edges follow the composition of the other two scenes.
 No third-party animation artwork is claimed as the source of these selected
 scenes. The earlier community tile draft below remains archived.
 

@@ -27,14 +27,16 @@ at the owner's explicit request. See SOURCES.md and the website's credits page.
 
 The selected fair-skinned explorer travels through the Himalayas, hills, and
 Terai in three original four-frame pixel-art loops. On large screens, the left
-panel grows from 22% to 32% to 48% of viewport width as the reader progresses.
-Each page chapter reserves its own column width, preventing scroll-driven text
-rewrapping. The panel waits for narrower sections to leave the screen before
-expanding over their former space. Scenes crossfade, and both animation and
+panel stays at a consistent, restrained width (22vw, limited to 230–300px).
+Every section shares the same column alignment; scrolling never changes widths
+or rewraps the content. The selected scenes use a brief opacity fade, and both animation and
 transitions honour reduced-motion preferences. Pause animation shows stills.
 Hidden tabs and inactive scenes use stills too. On tablets the left panel stays
-at a more readable 26%; phones show inline artwork at the start of each phase.
+within 200–260px; phones show inline artwork at the start of each phase.
 The existing geographic map and all portfolio content remain separate.
+The Terai artwork is a slender portrait vignette, extended above and below the
+canoe with flat banks and river scenery. Its irregular navy edges match the
+mountain and hill scenes instead of forming a wide aqua rectangle.
 Experience is sorted by confirmed start year, newest first (2026, 2025, 2024,
 2023), while the education map retains its bachelor’s-to-master’s sequence.
 Undated projects and honours do not receive invented dates.
@@ -115,7 +117,7 @@ is unchanged; the Word source is not bundled with the website.
 | src/journey.css | Sticky map and responsive story layout |
 | src/portfolio.js | Fills the portfolio and education cards; connects Motion/Lucide |
 | src/explorer-journey.js | Connects scroll chapters, selected scenes, and pause controls |
-| src/explorer-journey.css | Widening landscape panel, responsive columns, and lighter palette |
+| src/explorer-journey.css | Fixed-width landscape panel, responsive columns, and lighter palette |
 | public/journey-art/ | Selected GIF loops and still frames for the explorer's journey |
 | public/pixel-river/CREDITS.md | Credits for the archived earlier community-sprite draft |
 | src/premium.css | General typography, colours, and page styling |

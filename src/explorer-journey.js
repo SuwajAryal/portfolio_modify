@@ -5,7 +5,6 @@ const scenes = {
   hills:{step:'02 / 03',region:'THE HILLS',title:'Following the ridgeline.',description:'Green slopes, winding paths, and rivers finding their way downstream.'},
   terai:{step:'03 / 03',region:'THE TERAI',title:'Room for the river to breathe.',description:'The land opens out. A wider channel, quieter banks, and a different pace.'},
 };
-const panel=document.querySelector('.landscape-panel');
 const sections=[...document.querySelectorAll('body > [data-landscape-region]')];
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
 let held=reducedMotion.matches;
@@ -58,17 +57,10 @@ function showScene(name) {
 function updateJourney() {
   pending=0;
   let next='himalayas';
-  let safeWidth=Infinity;
   for (const section of sections) {
     const bounds=section.getBoundingClientRect();
     if(bounds.top<=innerHeight*.45) next=section.dataset.landscapeRegion;
-    // Reserve the narrower width while that chapter is on screen. This avoids
-    // covering its text during a transition to a wider landscape below.
-    if(bounds.bottom>-100&&bounds.top<innerHeight+100) {
-      safeWidth=Math.min(safeWidth,parseFloat(getComputedStyle(section).marginLeft)||0);
-    }
   }
-  if(Number.isFinite(safeWidth)) panel.style.setProperty('--journey-width',`${safeWidth}px`);
   if(next!==active) showScene(next);
 }
 function scheduleJourney() { if(!pending)pending=requestAnimationFrame(updateJourney); }
