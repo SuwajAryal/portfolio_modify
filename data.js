@@ -14,7 +14,7 @@ export const DATA = {
   researchProfile: {
     focus: "I study how rivers move water and sediment.",
     introduction: "My research combines physical principles and machine learning to predict suspended sediment in Himalayan river basins. I also examine when those predictions can be trusted.",
-    status: "M.Sc. Hydropower Engineering · Pulchowk Campus, Tribhuvan University · Ongoing",
+    status: "M.Sc. Hydropower Engineering · Pulchowk Campus, Tribhuvan University · Completed 2026",
     opportunity: "I’m seeking PhD opportunities in water resources and hydroinformatics, with a focus on physics-guided learning and reliable river models.",
     themes: [
       { title: "Physics-guided learning", question: "How can physical constraints improve sediment predictions in data-scarce river basins?", methods: "Sediment transport · Neural networks · Physical consistency" },
@@ -52,7 +52,7 @@ export const DATA = {
   
   aboutStory: `My academic interests lie at the intersection of classical hydraulics and modern computational methods. I am particularly driven by the challenge of modeling river systems in data-scarce environments, where traditional empirical formulas often struggle to capture complex sediment dynamics. My goal is to develop more robust predictive tools by informing data-driven models with established physical principles.
 
-I completed my Bachelor's degree at the Institute of Engineering, Pulchowk Campus, and am currently pursuing my Master's degree in Hydropower Engineering at the same institution. My academic journey has been defined by a commitment to rigorous analysis, supported by national-level merit scholarships for both my undergraduate and graduate studies.
+I completed my Bachelor's degree at the Institute of Engineering, Pulchowk Campus, and my Master's degree in Hydropower Engineering at the same institution in 2026. My academic journey has been defined by a commitment to rigorous analysis, supported by national-level merit scholarships for both my undergraduate and graduate studies.
 
 While my primary focus is research, my background includes significant practical design experience. I have worked on projects ranging from full irrigation system design to 1D and 2D hydraulic modeling for urban planning. This balance between theoretical research and design engineering ensures that my computational work remains grounded in real-world feasibility.
 
@@ -72,8 +72,8 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
     {
       degree: "M.Sc. in Hydropower Engineering",
       institution: "Pulchowk Campus, Tribhuvan University",
-      period: "2024 to Present",
-      status: "Ongoing",
+      period: "2024 to 2026",
+      status: "Completed",
       highlights: [
         "Aggregate: 86%; within the top 5%",
         "Merit scholarship through national-level entrance",

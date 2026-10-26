@@ -24,8 +24,8 @@ export const CHAPTERS = [
   { selector: '[data-education-index="1"]', step: 3, place: 'PULCHOWK CAMPUS · 2018 to 2023', title: 'Civil engineering foundations.',
     description: 'B.E. in Civil Engineering. The beginning of my university journey.',
     camera: { center: campus, zoom: 12.4, pitch: 0, bearing: 0 } },
-  { selector: '[data-education-index="0"]', step: 3, place: 'PULCHOWK CAMPUS · 2024 to PRESENT', title: 'A deeper focus on water.',
-    description: 'M.Sc. in Hydropower Engineering. Continuing at the same campus.',
+  { selector: '[data-education-index="0"]', step: 3, place: 'PULCHOWK CAMPUS · 2024 to 2026', title: 'A deeper focus on water.',
+    description: 'M.Sc. in Hydropower Engineering. Completed at Pulchowk Campus in 2026.',
     camera: { center: campus, zoom: 13, pitch: 0, bearing: 0 } },
 ];
 export const CAMPUS_CENTER = campus;
