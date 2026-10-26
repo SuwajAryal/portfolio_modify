@@ -1,12 +1,29 @@
 # Community sources and provenance
 
-No AI-generated images, models, textures, or terrain are used.
+Community software and geographic data power the map. The original pixel-art
+character scenes are a specific, owner-authorized exception to the original
+no-generated-assets preference.
+
+## Selected explorer artwork
+
+The owner selected the simpler pixel-art Himalaya, hills, and Terai scenes on
+26 October 2026 and authorized integration after a slightly fairer skin-palette
+adjustment. These are original AI-generated illustrations, guided by supplied
+visual references. Reference images themselves and their watermarks are not
+included. The explorer is a stylized stand-in, not a photographic likeness.
+
+`public/journey-art/` contains three four-frame GIF loops and their first-frame
+PNG stills. The sheets were split into equal 2×2 frame cells, cropped by two
+pixels at each edge to exclude grid seams, downsampled using nearest-neighbour
+sampling, and packaged at 48 colours with 350 ms per frame. This is an artistic
+journey, not a mapped river network, a physical flow model, or actual footage.
+No third-party animation artwork is claimed as the source of these selected
+scenes. The earlier community tile draft below remains archived.
 
 ## Vertical pixel-art river
 
 This earlier draft has been removed from the rendered page. Its source artwork
-and code are retained for reference. New original pixel-art drafts are being
-reviewed separately and are not integrated into this website.
+and code are retained for reference. The selected original scenes above replace it.
 
 The previous video and Lottie backgrounds are removed. A single full-height left
 strip arranges existing 2D sprites into a Nepal-inspired landscape. Snow artwork

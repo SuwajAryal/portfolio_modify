@@ -1,0 +1,98 @@
+/* The selected pixel scenes live beside the text, in reserved page columns. */
+:root {
+  --bg:#eef3ef; --bg2:#e6eee6; --bg-card:#ffffffed; --bg-card-h:#f8fbf6;
+  --accent:#286754; --accent2:#437666; --accent3:#8b6635;
+  --text:#334b44; --text-dim:#50665d; --text-bright:#173f34;
+  --snow-space:22vw; --hill-space:32vw; --plain-space:48vw;
+}
+body { background:var(--bg); color:var(--text); }
+body > [data-landscape-region] { width:calc(100% - var(--section-space)); max-width:none; margin-left:var(--section-space); margin-right:0; }
+[data-landscape-region="himalayas"] { --section-space:var(--snow-space); }
+[data-landscape-region="hills"] { --section-space:var(--hill-space); }
+[data-landscape-region="terai"] { --section-space:var(--plain-space); }
+/* The text column has a fixed width within each chapter. Scrolling changes only
+   the artwork panel, preventing paragraphs above the reader from rewrapping. */
+.landscape-panel { position:fixed; top:76px; bottom:0; left:0; z-index:15;
+  width:var(--journey-width,var(--snow-space)); background:#10172d;
+  color:#e4e9e2; display:flex; flex-direction:column; padding:24px clamp(12px,2vw,32px);
+  border-right:1px solid #ffffff12; transition:width .85s cubic-bezier(.22,.61,.36,1); overflow:hidden; }
+.landscape-heading { display:flex; justify-content:space-between; gap:12px; font-size:.55rem; letter-spacing:.14em; color:#aab8c2; white-space:nowrap; }
+.landscape-art { position:relative; flex:1; min-height:150px; margin:20px -8px 12px; }
+.landscape-image { position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:contain;
+  image-rendering:pixelated; opacity:0; transform:translateY(12px); transition:opacity .7s,transform .85s; }
+.landscape-image.is-active { opacity:1; transform:translateY(0); }
+.landscape-caption { flex:none; padding:10px 0 18px; }
+#landscape-region { color:#d5c18d; font-size:.58rem; letter-spacing:.18em; margin-bottom:9px; }
+.landscape-caption h2 { font-size:clamp(1.15rem,1.8vw,1.75rem); font-weight:500; line-height:1.3; letter-spacing:-.035em; max-width:22ch; color:#f0f2e9; }
+#landscape-description { color:#aebfca; font-size:.72rem; line-height:1.8; max-width:40ch; margin-top:10px; }
+.landscape-footer { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; border-top:1px solid #ffffff20; padding-top:14px; }
+.landscape-footer .landscape-stops { position:static; display:flex; gap:12px; background:none; border:0; box-shadow:none; backdrop-filter:none; font-size:.68rem; }
+.landscape-stops a { color:#9aadb9; text-decoration:none; text-underline-offset:6px; }
+.landscape-stops a[aria-current] { color:#e8d5a3; text-decoration:underline; }
+[data-art-pause] { border:1px solid #c6d1d244; background:#ffffff08; color:#dce6e1; border-radius:4px; padding:8px 9px; font:inherit; font-size:.65rem; cursor:pointer; }
+.mobile-landscape { display:none; }
+body > nav { background:#f7faf4f5; border-color:#254d3520; }
+body > nav.scrolled { box-shadow:0 4px 24px #23472f12; }
+.nav-links { gap:.85rem; }
+.nav-links a { color:#344e43; }
+.nav-links .btn { border-color:#366b55 !important; color:#285540 !important; }
+.story-journey { gap:2rem; padding-inline:1.8rem; }
+.journey-copy .hero h1 { font-size:clamp(3.3rem,5.8vw,6rem); }
+.hero-greeting,.research-type,.section-number { color:#785524; }
+.hero h1 span:last-child,.hero-typed,.about-text .lead { color:#286754; }
+.hero-tagline,.hero .chip,.hero-disciplines,.scroll-cue,.about-text p,.research-details,.academic-note,.education-intro { color:#465e51; }
+.hero-disciplines,.section-line { border-color:#254d3528; }
+.section-line { background:#254d3528; }
+.card,.about-stat,.future-box { background:#fffffff0; border-color:#355c3f28; box-shadow:0 6px 30px #314c2f06; }
+.card:hover,.education-step.map-chapter-active .card { background:#f9fcf4; border-color:#46826780; }
+.about-stat-value,.academic-link,.source-credit a { color:#286754; }
+.interest-pill,.pill { background:#f6faf1d9; border-color:#416a472b; color:#315741; }
+.btn-primary { background:#306c55; border-color:#306c55; color:#fffdf6; }
+.btn-primary:hover { background:#225640; color:#fffdf6; }
+.btn-outline { color:#315741; border-color:#31574166; }
+.beyond-icon { background:#e5eede !important; color:#315741; }
+.manuscript-list { color:#365447; }
+.journey-map { background:#f3f5ed; border-color:#355c3f38; box-shadow:0 14px 40px #314c2f12; }
+.journey-map-caption { background:#f3f5ed; }
+.journey-map-caption h2 { color:#173f34; }
+.journey-kicker { color:#785524; }
+#journey-description,.nepal-legend,#journey-hint,.journey-source { color:#405d50; }
+.journey-stops span { background:#31574133; }
+.journey-stops span.active { background:#306c55; }
+#journey-pause { background:#e4eddf; color:#254d3b; border-color:#31574155; }
+.tl-dot { background:#eef3e9; border-color:#306c55; }
+.experience-year { color:#7e5b2d; font-size:1.1rem; font-weight:600; margin-bottom:.8rem; }
+body > .section { padding-inline:clamp(24px,3vw,52px); scroll-margin-top:90px; }
+[data-landscape-region="terai"] .research-grid { grid-template-columns:minmax(0,1fr); }
+.contact-grid { grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr)); }
+.contact-value { word-break:normal; overflow-wrap:anywhere; }
+.beyond-grid { grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr)); }
+@media (min-width:769px) and (max-width:1099px) {
+  :root { --snow-space:26vw; --hill-space:26vw; --plain-space:26vw; }
+  .landscape-panel { padding-inline:14px; }
+  .landscape-heading { font-size:.45rem; letter-spacing:.04em; }
+  .story-journey { display:block; padding-inline:1.5rem; }
+  .journey-map { position:relative; top:auto; grid-column:auto; margin-top:95px; height:500px; min-height:0; }
+  .journey-copy .hero { min-height:680px; }
+  .nav-links { gap:.5rem; }
+  .nav-links a { font-size:.65rem; }
+  #researchGrid { grid-template-columns:minmax(0,1fr); }
+}
+@media (max-width:768px) {
+  :root { --snow-space:0px; --hill-space:0px; --plain-space:0px; }
+  .landscape-panel { display:none; }
+  body > [data-landscape-region] { width:100%; margin-left:0; }
+  .story-journey { padding:0; }
+  .journey-copy { padding-inline:1.4rem; }
+  .journey-copy .hero h1 { font-size:clamp(3.8rem,17vw,6rem); }
+  .nav-links { background:#f7faf4; }
+  .mobile-landscape { display:block; margin:22px 0 26px; background:#10172d; border-radius:8px; overflow:hidden; }
+  .mobile-landscape img { display:block; width:100%; height:260px; object-fit:contain; image-rendering:pixelated; }
+  .mobile-landscape[data-mobile-region="terai"] img { height:auto; aspect-ratio:576/462; }
+  .mobile-landscape figcaption { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 14px; color:#d7d1b4; font-size:.65rem; letter-spacing:.08em; }
+  body > .section { padding-inline:1.4rem; }
+  .beyond-grid { grid-template-columns:minmax(0,1fr); }
+}
+@media (prefers-reduced-motion:reduce) {
+  .landscape-panel,.landscape-image { transition:none; }
+}

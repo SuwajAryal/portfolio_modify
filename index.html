@@ -12,9 +12,22 @@
   <link rel="stylesheet" href="style.css?v=2" />
   <link rel="stylesheet" href="/src/premium.css" />
   <link rel="stylesheet" href="/src/journey.css" />
-  <link rel="stylesheet" href="/src/landscape.css" />
+  <link rel="stylesheet" href="/src/explorer-journey.css" />
 </head>
 <body>
+<aside class="landscape-panel" aria-label="My journey from the Himalayas to the Terai">
+  <div class="landscape-heading"><span id="landscape-step">01 / 03</span><span>MY HOME · NEPAL</span></div>
+  <div class="landscape-art">
+    <img class="landscape-image is-active" data-scene="himalayas" src="./journey-art/himalayas-still.png" width="336" height="447" alt="A red-coated explorer hiking in the Himalayas beside a meltwater stream">
+    <img class="landscape-image" data-scene="hills" src="./journey-art/hills-still.png" width="384" height="480" alt="An explorer walking a green ridge above a river" aria-hidden="true">
+    <img class="landscape-image" data-scene="terai" src="./journey-art/terai-still.png" width="576" height="462" alt="The explorer paddling a canoe on a broad Terai river" aria-hidden="true">
+  </div>
+  <div class="landscape-caption"><p id="landscape-region">HIMALAYAS</p><h2 id="landscape-title">Every river starts somewhere.</h2><p id="landscape-description">Cold air, snowy trails, and the first headwaters.</p></div>
+  <div class="landscape-footer">
+    <nav class="landscape-stops" aria-label="Landscape chapters"><a href="#hero" data-region-link="himalayas" aria-current="step">Snow</a><a href="#experience" data-region-link="hills">Hills</a><a href="#skills" data-region-link="terai">Terai</a></nav>
+    <button type="button" data-art-pause aria-pressed="false">Pause animation</button>
+  </div>
+</aside>
 
 <!-- ====== NAV ====== -->
 <nav id="nav">
@@ -35,7 +48,7 @@
 </nav>
 
 <!-- The map stays beside this story until the education chapter ends. -->
-<div class="story-journey" id="story-journey">
+<div class="story-journey" id="story-journey" data-landscape-region="himalayas">
   <aside class="journey-map" aria-label="Map following my education journey">
     <div id="journey-map-canvas"></div>
     <div class="journey-map-heading"><span>NEPAL / MY JOURNEY</span><span id="journey-counter">01 / 04</span></div>
@@ -99,7 +112,7 @@
 </div>
 
 <!-- ====== EXPERIENCE ====== -->
-<section class="section reveal" id="experience">
+<section class="section reveal" id="experience" data-landscape-region="hills">
   <div class="section-header">
     <span class="section-number">03</span>
     <h2 class="section-title">Work Experience</h2>
@@ -110,7 +123,7 @@
 </section>
 
 <!-- ====== RESEARCH INTERESTS ====== -->
-<section class="section reveal" id="interests">
+<section class="section reveal" id="interests" data-landscape-region="hills">
   <div class="section-header">
     <span class="section-number">04</span>
     <h2 class="section-title">Research Interests</h2>
@@ -120,14 +133,14 @@
 </section>
 
 <!-- ====== RESEARCH PROJECTS ====== -->
-<section class="section reveal" id="publications" aria-labelledby="publicationsTitle">
+<section class="section reveal" id="publications" aria-labelledby="publicationsTitle" data-landscape-region="hills">
   <div class="section-header"><h2 class="section-title" id="publicationsTitle">Publications & Presentations</h2><span class="section-line"></span></div>
   <div class="research-grid" id="publicationsGrid"></div>
   <h3 class="academic-subheading">Manuscripts & Preprints</h3>
   <p class="academic-note">Current manuscript and preprint work listed in my academic CV.</p>
   <ul class="manuscript-list" id="manuscriptList"></ul>
 </section>
-<section class="section reveal" id="research">
+<section class="section reveal" id="research" data-landscape-region="hills">
   <div class="section-header">
     <span class="section-number">05</span>
     <h2 class="section-title">Projects & Research Work</h2>
@@ -137,7 +150,7 @@
 </section>
 
 <!-- ====== SKILLS ====== -->
-<section class="section reveal" id="skills">
+<section class="section reveal" id="skills" data-landscape-region="terai">
   <div class="section-header">
     <span class="section-number">06</span>
     <h2 class="section-title">Technical Skills</h2>
@@ -147,7 +160,7 @@
 </section>
 
 <!-- ====== TRAINING ====== -->
-<section class="section reveal" id="training">
+<section class="section reveal" id="training" data-landscape-region="terai">
   <div class="section-header">
     <span class="section-number">07</span>
     <h2 class="section-title">Training</h2>
@@ -157,18 +170,18 @@
 </section>
 
 <!-- ====== BEYOND ENGINEERING ====== -->
-<section class="section reveal" id="honors" aria-labelledby="honorsTitle">
+<section class="section reveal" id="honors" aria-labelledby="honorsTitle" data-landscape-region="terai">
   <div class="section-header"><h2 class="section-title" id="honorsTitle">Honours & Scholarships</h2><span class="section-line"></span></div>
   <div class="research-grid" id="honorsGrid"></div>
 </section>
-<section class="section reveal" id="professional" aria-labelledby="professionalTitle">
+<section class="section reveal" id="professional" aria-labelledby="professionalTitle" data-landscape-region="terai">
   <div class="section-header"><h2 class="section-title" id="professionalTitle">Professional Affiliations & Languages</h2><span class="section-line"></span></div>
   <div class="research-grid" id="affiliationsGrid"></div>
   <h3 class="academic-subheading">Languages</h3>
   <div class="research-grid" id="languagesGrid"></div>
   <p class="academic-note" id="referencesNote"></p>
 </section>
-<section class="section reveal" id="beyond">
+<section class="section reveal" id="beyond" data-landscape-region="terai">
   <div class="section-header">
     <span class="section-number">08</span>
     <h2 class="section-title">Beyond Engineering</h2>
@@ -178,7 +191,7 @@
 </section>
 
 <!-- ====== FUTURE ====== -->
-<section class="section reveal" id="future">
+<section class="section reveal" id="future" data-landscape-region="terai">
   <div class="section-header">
     <span class="section-number">09</span>
     <h2 class="section-title">Where I'm Headed</h2>
@@ -188,7 +201,7 @@
 </section>
 
 <!-- ====== CONTACT ====== -->
-<section class="section reveal" id="contact">
+<section class="section reveal" id="contact" data-landscape-region="terai">
   <div class="section-header">
     <span class="section-number">10</span>
     <h2 class="section-title">Get In Touch</h2>
@@ -198,11 +211,12 @@
 </section>
 
 <!-- ====== FOOTER ====== -->
-<footer id="footer"></footer>
+<footer id="footer" data-landscape-region="terai"></footer>
 
 <!-- ====== DATA + ENGINE ====== -->
 <script type="module" src="/src/scene-loader.js"></script>
 <script type="module" src="/src/portfolio.js"></script>
+<script type="module" src="/src/explorer-journey.js"></script>
 
 </body>
 </html>

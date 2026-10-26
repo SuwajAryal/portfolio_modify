@@ -19,16 +19,22 @@ schools, degree-specific buildings, or personal history have been invented.
 
 This version uses ordinary JavaScript and CSS. The previous React globe has been
 removed because MapLibre handles both the Himalayan landscape and the campus map.
-No AI-generated images, models, or textures are used. See SOURCES.md and the
-website's credits page for source links and notices.
+The mapping components and geographic data come from community sources. The
+owner-selected, original pixel-art character scenes were generated and adjusted
+at the owner's explicit request. See SOURCES.md and the website's credits page.
 
 ## How it behaves
 
-The previous pixel-art strip has been removed from the page. Replacement
-Himalaya, hills, and Terai animations are being reviewed as standalone drafts;
-they are not integrated or shipped with the website. The eventual selected
-left-side landscape is intended to widen downhill toward roughly half the
-page at the Terai. The existing geographic map and portfolio content remain.
+The selected fair-skinned explorer travels through the Himalayas, hills, and
+Terai in three original four-frame pixel-art loops. On large screens, the left
+panel grows from 22% to 32% to 48% of viewport width as the reader progresses.
+Each page chapter reserves its own column width, preventing scroll-driven text
+rewrapping. The panel waits for narrower sections to leave the screen before
+expanding over their former space. Scenes crossfade, and both animation and
+transitions honour reduced-motion preferences. Pause animation shows stills.
+Hidden tabs and inactive scenes use stills too. On tablets the left panel stays
+at a more readable 26%; phones show inline artwork at the start of each phase.
+The existing geographic map and all portfolio content remain separate.
 Experience is sorted by confirmed start year, newest first (2026, 2025, 2024,
 2023), while the education map retains its bachelor’s-to-master’s sequence.
 Undated projects and honours do not receive invented dates.
@@ -81,6 +87,11 @@ npm run preview
 The build creates dist and includes community license notices. This experiment
 repository does not automatically publish a website or change the original site.
 
+After building, Windows users can double-click `PREVIEW.cmd` to view `dist/`
+through a local server. This uses installed Node.js, with a fallback to the
+bundled Codex runtime on this computer. Keep the preview window open while
+viewing; Ctrl+C stops it. No deployment or extra package installation occurs.
+
 ## Where to edit
 
 The academic content has been expanded from the supplied
@@ -103,9 +114,10 @@ is unchanged; the Word source is not bundled with the website.
 | scripts/prepare-nepal-data.mjs | Recreates that extract from pinned source files; full downloads stay in the ignored .cache folder |
 | src/journey.css | Sticky map and responsive story layout |
 | src/portfolio.js | Fills the portfolio and education cards; connects Motion/Lucide |
-| src/pixel-river.js | Arranges community sprites into the vertical landscape and plays the water frames |
-| src/landscape.css | Left-side landscape placement and the lighter page palette |
-| public/pixel-river/CREDITS.md | Pixel-art creators, source links, modifications, and licences |
+| src/explorer-journey.js | Connects scroll chapters, selected scenes, and pause controls |
+| src/explorer-journey.css | Widening landscape panel, responsive columns, and lighter palette |
+| public/journey-art/ | Selected GIF loops and still frames for the explorer's journey |
+| public/pixel-river/CREDITS.md | Credits for the archived earlier community-sprite draft |
 | src/premium.css | General typography, colours, and page styling |
 | src/scene-loader.js | Loads the optional map separately from the main content |
 | public/sources.html | Visitor-facing credits |
