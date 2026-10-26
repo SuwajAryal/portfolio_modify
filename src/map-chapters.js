@@ -4,12 +4,12 @@
 const campus = [85.3213, 27.6826];
 
 export const CHAPTERS = [
-  { selector: '#hero', step: 0, place: 'EARTH', title: 'A wider perspective.',
-    description: 'Scroll from the world to the place where my engineering journey took shape.',
-    camera: { center: [78, 25], zoom: 0.8, pitch: 0, bearing: 0 } },
-  { selector: '#about', step: 1, place: 'NEPAL', title: 'Rooted in the Himalayas.',
-    description: 'My work connects water resources, physical principles, and scientific computing.',
-    camera: { center: [84.1, 28.15], zoom: 6.3, pitch: 12, bearing: 0 } },
+  { selector: '#hero', step: 0, place: 'NEPAL · MY HOME', title: 'Where mountains meet water.', countryWide: true,
+    description: 'Himalayan headwaters. River systems. The landscape behind my interest in water and hydropower.',
+    camera: { center: [84.1, 28.15], zoom: 5.7, pitch: 25, bearing: -8 } },
+  { selector: '#about', step: 1, place: 'THE HIMALAYAS · NEPAL', title: 'From the mountains, downstream.',
+    description: 'A closer look at the terrain and river systems that connect my home to my engineering work.',
+    camera: { center: [84.4, 28.55], zoom: 7.3, pitch: 52, bearing: -10 } },
   { selector: '#education', step: 2, place: 'KATHMANDU VALLEY', title: 'Where I studied.',
     description: 'Pulchowk Campus, Tribhuvan University. Lalitpur, Nepal.',
     camera: { center: [85.32, 27.7], zoom: 11, pitch: 25, bearing: -12 } },

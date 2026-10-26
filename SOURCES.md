@@ -4,24 +4,48 @@ No AI-generated images, models, textures, or terrain are used.
 
 | Part | Source | License / attribution |
 | --- | --- | --- |
-| Map renderer and globe projection | https://github.com/maplibre/maplibre-gl-js | BSD-3-Clause; full installed notice included in public/community-licenses.txt |
+| Map renderer and terrain | https://github.com/maplibre/maplibre-gl-js | BSD-3-Clause; full installed notice included in public/community-licenses.txt |
 | Scroll-driven camera approach | https://maplibre.org/maplibre-gl-js/docs/examples/fly-to-a-location-based-on-scroll-position/ | Official MapLibre example, adapted to this portfolio's sections and degree entries |
-| Globe-to-detailed-map rendering | https://maplibre.org/maplibre-gl-js/docs/examples/display-a-globe-with-a-vector-map/ | Official MapLibre example |
+| Terrain and hillshade patterns | https://maplibre.org/maplibre-gl-js/docs/examples/3d-terrain/ and https://maplibre.org/maplibre-gl-js/docs/examples/add-a-hillshade-layer/ | Official MapLibre examples |
 | Hosted Liberty map style and tiles | https://openfreemap.org/quick_start/ | OpenFreeMap; built-in source attribution preserved |
 | Map data | https://www.openstreetmap.org/copyright | OpenStreetMap contributors, ODbL; source attribution remains visible on the map |
 | Vector tile schema / cartography | https://openmaptiles.org/ | OpenMapTiles attribution supplied by the hosted source |
-| Optional Nepal outline | https://www.naturalearthdata.com/ | Public domain; downloaded country dataset unchanged |
+| Himalayan elevation tiles | https://mapterhorn.com/data-access/ | Open elevation sources; attribution and individual data terms at https://mapterhorn.com/attribution/ . Mapterhorn attribution is included on the map. |
+| Nepal boundary, rivers, and mountain points | https://www.naturalearthdata.com/ | Public domain; geographic coordinates extracted without redrawing or rounding |
 | Section transitions | https://motion.dev/docs/inview | MIT |
 | Interface icons | https://lucide.dev/ | ISC, including Feather-derived notices |
 | Typeface | https://rsms.me/inter/ | SIL Open Font License; served via Google Fonts |
 
-The Natural Earth countries file is from revision
+The three Natural Earth inputs are from revision
 ca96624a56bd078437bca8184e78163e5039ad19:
-https://github.com/nvkelso/natural-earth-vector/blob/ca96624a56bd078437bca8184e78163e5039ad19/geojson/ne_110m_admin_0_countries.geojson
+https://github.com/nvkelso/natural-earth-vector/tree/ca96624a56bd078437bca8184e78163e5039ad19/geojson
+
+- ne_10m_admin_0_countries.geojson
+- ne_10m_rivers_lake_centerlines.geojson
+- ne_10m_geography_regions_elevation_points.geojson
 
 Natural Earth terms: https://www.naturalearthdata.com/about/terms-of-use/
-Only the Nepal polygon is displayed, and only at country scale. Street and
-campus detail comes from the live OpenFreeMap/OpenStreetMap tiles instead.
+The 1:10m name means 1:10 million map scale, not 10-metre spatial resolution.
+`scripts/prepare-nepal-data.mjs` selects Nepal, 17 river features intersecting the
+regional bounding box [79,25.5,89,31.5], and three mountain points. It preserves
+source coordinates and river identifiers. These are generalised features and
+do not represent a complete tributary inventory. Raw files are cached locally;
+only the 149 KB regional extract is shipped. Street/campus detail and finer
+waterways come from live OpenFreeMap/OpenStreetMap tiles.
+
+River display aliases connect source names Ghäghara, Gandak, and Sapt to the
+Karnali–Ghaghara, Gandaki–Narayani, and Koshi/Saptakoshi systems. The source names
+remain in feature properties. Naming references:
+https://giwmscdnone.gov.np/media/pdf_upload/Nepal%20Statistical%20Year%20book%202023_e3ovoqz.pdf
+and https://lib.icimod.org/record/29591/files/GSN-RR14-2.pdf .
+
+Mountain labels are taken from Natural Earth's names/locations. Source elevation
+numbers are not displayed. Mapterhorn's Terrarium-encoded 512-pixel DEM tiles are
+used independently for terrain and hillshading, as MapLibre recommends. Relief
+is displayed at 1.35× vertical exaggeration; the terrain is flattened at city
+scale for campus readability. The Nepal spotlight is a display mask using the
+source country polygon. The river overlay is static geographic linework, with
+no claimed discharge, live conditions, flow speed, or direction.
 
 ## Education and campus location
 
@@ -38,11 +62,11 @@ campus coordinate. No route between two different campuses is implied.
 
 Our code connects chapter positions to MapLibre flyTo/jumpTo, builds the sticky
 reading layout, adds a campus label, and honours pause and reduced-motion settings.
-The community library renders the globe and detailed map; the existing hosted
+The community library renders the terrain and detailed map; the existing hosted
 Liberty style supplies the cartography. The old React Globe.gl explorer is
 removed in this revision and remains available only in Git history.
 
 The map requests remote style, font, sprite, and vector tile resources from
-OpenFreeMap. It does not need a private API key or collect visitor location.
+OpenFreeMap, plus elevation tiles from Mapterhorn. It does not need a private API key or collect visitor location.
 Full installed dependency notices are regenerated by npm run build and shipped
 as public/community-licenses.txt.

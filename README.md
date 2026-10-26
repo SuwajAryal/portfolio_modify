@@ -1,6 +1,6 @@
 # Suwaj's portfolio — a scroll-driven education journey
 
-The map follows the page: **Earth → Nepal → Kathmandu Valley → Pulchowk Campus**.
+The map follows the page: **Nepal → Himalayan rivers → Kathmandu Valley → Pulchowk Campus**.
 As visitors scroll through the bachelor’s and master’s cards, the camera settles
 on the same campus with a different framing. Scrolling upward reverses the story.
 
@@ -9,22 +9,23 @@ schools, degree-specific buildings, or personal history have been invented.
 
 ## Community components
 
-- MapLibre GL JS: globe projection, street map rendering, and camera flights.
+- MapLibre GL JS: terrain, hillshade, street map rendering, and camera flights.
 - Official MapLibre scroll-to-location example: the chapter-based approach.
 - OpenFreeMap Liberty: the existing map style and hosted vector tiles.
 - OpenStreetMap/OpenMapTiles: detailed roads, place names, and geographic data.
-- Natural Earth: the optional Nepal outline at country scale.
+- Mapterhorn: open elevation tiles used for Himalayan relief and 3D terrain.
+- Natural Earth: Nepal's detailed boundary, regional river paths, and mountain labels.
 - Motion and Lucide: section transitions and interface icons.
 
 This version uses ordinary JavaScript and CSS. The previous React globe has been
-removed because MapLibre can handle both the distant globe and the campus map.
+removed because MapLibre handles both the Himalayan landscape and the campus map.
 No AI-generated images, models, or textures are used. See SOURCES.md and the
 website's credits page for source links and notices.
 
 ## How it behaves
 
-1. Introduction: a globe view.
-2. About: the camera flies toward Nepal.
+1. Introduction: Nepal fits in view on desktop and phones, outlined in gold with neighbouring areas muted. A clear NEPAL label and introduction establish where I am from immediately.
+2. About: the camera moves closer to Himalayan relief and mapped river corridors.
 3. Education heading: the Kathmandu Valley comes into view.
 4. Bachelor’s card: the camera moves into the Pulchowk Campus area.
 5. Master’s card: the same campus remains in focus for postgraduate study.
@@ -38,6 +39,12 @@ The map leaves the screen after Education, and the remaining portfolio continues
 Live map tiles need an internet connection. The campus pin is an approximate
 campus-area location, not a surveyed building or department location. If map tiles
 or WebGL are unavailable, the portfolio text remains readable.
+
+Mountain relief comes from elevation data, with 1.35× vertical exaggeration for
+legibility. River paths are geographic features, not live discharge or simulated
+flow. Natural Earth is generalised cartography and omits smaller tributaries;
+OpenStreetMap adds finer waterways as the map zooms in. Landscape overlays fade
+before the campus scene, where terrain is flattened for readable buildings.
 
 ## Run locally
 
@@ -67,6 +74,9 @@ repository does not automatically publish a website or change the original site.
 | index.html | Story structure, map container, and reading sections |
 | src/map-chapters.js | Destinations, zoom levels, captions, and section selectors |
 | src/map-story.js | Connects scroll position to MapLibre camera flights |
+| src/nepal-landscape.js | Adds real terrain, hillshade, the Nepal spotlight, river paths, and mountain labels |
+| public/data/nepal-geography.geojson | Small regional extract from the cited public-domain Natural Earth sources |
+| scripts/prepare-nepal-data.mjs | Recreates that extract from pinned source files; full downloads stay in the ignored .cache folder |
 | src/journey.css | Sticky map and responsive story layout |
 | src/portfolio.js | Fills the portfolio and education cards; connects Motion/Lucide |
 | src/premium.css | General typography, colours, and page styling |
@@ -78,3 +88,7 @@ repository does not automatically publish a website or change the original site.
 To add another school later, add its real education entry in data.js and a
 matching destination in src/map-chapters.js. The campus coordinate is defined
 once in that file, so both existing degrees share it.
+
+Run `node scripts/prepare-nepal-data.mjs` to rebuild the Nepal extract. It downloads
+the pinned public source files if they are absent locally. The prepared extract
+is committed, so normal installation/builds do not download the full datasets.
