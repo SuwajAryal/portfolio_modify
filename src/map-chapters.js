@@ -4,7 +4,7 @@
 const campus = [85.3213, 27.6826];
 
 export const CHAPTERS = [
-  { selector: '#hero', step: 0, place: 'NEPAL · MY HOME', title: 'Where mountains meet water.', countryWide: true,
+  { selector: '#place', step: 0, place: 'NEPAL · MY HOME', title: 'Where mountains meet water.', countryWide: true,
     description: 'Himalayan headwaters. River systems. The landscape behind my interest in water and hydropower.',
     camera: { center: [84.1, 28.15], zoom: 5.7, pitch: 0, bearing: 0 } },
   { selector: '#about', step: 1, place: 'CENTRAL NEPAL · HIMALAYAN HEADWATERS', title: 'From the mountains, downstream.',

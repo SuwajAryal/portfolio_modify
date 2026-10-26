@@ -18,6 +18,17 @@ import { createIcons, MapPin, Mail, Phone, ArrowUpRight, ArrowDown, Download,
     const span = document.createElement('span'); span.textContent = word; return span;
   }));
   $('heroTagline').textContent = d.tagline;
+  $('researchFocus').textContent = d.researchProfile.focus;
+  $('researchIntroduction').textContent = d.researchProfile.introduction;
+  $('researchStatus').textContent = d.researchProfile.status;
+  $('researchOpportunity').textContent = d.researchProfile.opportunity;
+  $('researchEmail').href = `mailto:${d.academicEmail}`;
+  $('researchThemes').innerHTML = d.researchProfile.themes.map((theme,index) => `
+    <article class="research-theme">
+      <span class="theme-number">0${index+1}</span>
+      <h3>${theme.title}</h3><p>${theme.question}</p>
+      <p class="theme-methods">${theme.methods}</p>
+    </article>`).join('');
 
   // Hero chips
   $('heroChips').innerHTML = `

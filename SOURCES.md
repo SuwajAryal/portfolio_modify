@@ -20,6 +20,12 @@ journey, not a mapped river network, a physical flow model, or actual footage.
 The selected Terai sheet was subsequently extended into a portrait river vignette,
 retaining the fair-skinned canoe character and adding low banks and flat farmland.
 Its irregular navy outer edges follow the composition of the other two scenes.
+For the research-focused redesign, the outside navy backgrounds of all three
+sheets were removed using the image-editing tool. Their alpha transparency is
+preserved in the PNG stills and GIF loops. Existing scene content and fair-skinned
+character identity were retained. The page uses Inter and Source Serif 4, both
+under the SIL Open Font License and served through Google Fonts. Source Serif:
+https://github.com/adobe-fonts/source-serif
 No third-party animation artwork is claimed as the source of these selected
 scenes. The earlier community tile draft below remains archived.
 

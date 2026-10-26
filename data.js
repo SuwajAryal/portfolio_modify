@@ -9,8 +9,19 @@ export const DATA = {
   // ──────────────────────────────────────────────────
   name: "Suwaj Aryal",
   firstName: "Suwaj",
-  title: "Water Resource and Hydropower Engineer",
+  title: "Water Resources and Hydropower Engineer",
   tagline: "I design how water moves, from rivers to turbines.",
+  researchProfile: {
+    focus: "I study how rivers move water and sediment.",
+    introduction: "My research combines physical principles and machine learning to predict suspended sediment in Himalayan river basins—and to understand when those predictions can be trusted.",
+    status: "M.Sc. Hydropower Engineering · Pulchowk Campus, Tribhuvan University · Ongoing",
+    opportunity: "I’m seeking PhD opportunities in water resources and hydroinformatics, with a focus on physics-guided learning and reliable river models.",
+    themes: [
+      { title: "Physics-guided learning", question: "How can physical constraints improve sediment predictions in data-scarce river basins?", methods: "Sediment transport · Neural networks · Physical consistency" },
+      { title: "Reliable river forecasts", question: "When do predictive models remain reliable under high flows and changing catchment conditions?", methods: "Model evaluation · Uncertainty · Spatiotemporal forecasting" },
+      { title: "Sustainable water systems", question: "How can forecasting and optimisation support reservoir operation and watershed management?", methods: "Hydropower · Reservoir optimisation · Climate impacts" },
+    ],
+  },
   location: "Budhanilkantha-10, Kathmandu, Nepal",
   phone: "+977 9869667002",
   email: "suwajaryal2016@gmail.com",
@@ -25,8 +36,8 @@ export const DATA = {
   // ──────────────────────────────────────────────────
   heroWords: [
     "Water Resources Engineer",
-    "Hydroinfromatics Enthusiast",
-    "Hydropower Engineert",
+    "Hydroinformatics Enthusiast",
+    "Hydropower Engineer",
     "Hydraulic Modeller",
     "Physics-Governed ML Modeller",
     "Scientific Python Developer",
@@ -66,8 +77,8 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
       highlights: [
         "Aggregate: 86%; within the top 5%",
         "Merit scholarship through national-level entrance",
-        "Focus areas: Hydraulic modelling, sediment dynamics, physical adherance and river engineering",
-        "Researching physics informed machine learning model for better physical consistency and reliablity ",
+        "Focus areas: Hydraulic modelling, sediment dynamics, physical adherence and river engineering",
+        "Researching physics-informed machine learning models for physical consistency and reliability",
       ],
     },
     {
@@ -235,8 +246,8 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
     "Computational Hydraulics & River Modelling",
     "Machine Learning in Hydrology and Hydraulics",
     "Sediment Transport & Reservoir Sustainability",
-    "Data Driven Machine Learning architecture Design",
-    "Hydroinformatic Automation Systems and APIs",
+    "Data-Driven Model & Architecture Design",
+    "Hydroinformatics Automation, Systems & APIs",
     "Data Analysis and Engineering",
     "Hydropower System Design & Optimization",
     "Flood & Watershed Modelling",

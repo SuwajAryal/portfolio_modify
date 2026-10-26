@@ -1,4 +1,19 @@
-# Suwaj's portfolio — a scroll-driven education journey
+# Suwaj's research portfolio
+
+The opening prioritizes PhD research interests, thesis methods and limitations,
+publications, and a direct academic contact link. The biography, education,
+experience, and all existing projects remain available below. New research
+themes are framed as questions and interests, not as completed achievements.
+
+The visual system uses warm-white paper, charcoal text, muted teal, Inter body
+type, and Source Serif 4 headings. Body copy is normally 16px with generous line
+spacing; short metadata is kept distinct from the main reading text. The selected
+pixel scenes have transparent outer backgrounds rather than a dark navy box.
+
+The opening introduces Suwaj directly with “Namaste, I’m” and a short description
+of his river and sediment research. The left column tells “The story of Nepal’s
+rivers”: mountain headwaters, streams meeting in the hills, and a broader channel
+on the Terai plains. Phone visitors see this story alongside the inline artwork.
 
 The map follows the page: **Nepal → Himalayan rivers → Kathmandu Valley → Pulchowk Campus**.
 As visitors scroll through the bachelor’s and master’s cards, the camera settles
@@ -27,21 +42,21 @@ at the owner's explicit request. See SOURCES.md and the website's credits page.
 
 The selected fair-skinned explorer travels through the Himalayas, hills, and
 Terai in three original four-frame pixel-art loops. On large screens, the left
-panel stays at a consistent, restrained width (22vw, limited to 230–300px).
+panel stays at a consistent, restrained width (20vw, limited to 230–280px).
 Every section shares the same column alignment; scrolling never changes widths
 or rewraps the content. The selected scenes use a brief opacity fade, and both animation and
 transitions honour reduced-motion preferences. Pause animation shows stills.
 Hidden tabs and inactive scenes use stills too. On tablets the left panel stays
-within 200–260px; phones show inline artwork at the start of each phase.
+at 210px; phones show inline artwork at the start of each phase.
 The existing geographic map and all portfolio content remain separate.
 The Terai artwork is a slender portrait vignette, extended above and below the
-canoe with flat banks and river scenery. Its irregular navy edges match the
+canoe with flat banks and river scenery. Its irregular transparent edges match the
 mountain and hill scenes instead of forming a wide aqua rectangle.
 Experience is sorted by confirmed start year, newest first (2026, 2025, 2024,
 2023), while the education map retains its bachelor’s-to-master’s sequence.
 Undated projects and honours do not receive invented dates.
 
-1. Introduction: Nepal fits in view on desktop and phones, outlined in gold with neighbouring areas muted. A clear NEPAL label and introduction establish where I am from immediately.
+1. Place and education: after the research sections, Nepal fits in view on desktop and phones, outlined in gold with neighbouring areas muted.
 2. About: a wider central Nepal view includes Himalayan relief and river corridors, centred on the same coordinate as the Kathmandu chapter.
 3. Education heading: the Kathmandu Valley comes into view.
 4. Bachelor’s card: the camera moves into the Pulchowk Campus area.
@@ -118,6 +133,7 @@ is unchanged; the Word source is not bundled with the website.
 | src/portfolio.js | Fills the portfolio and education cards; connects Motion/Lucide |
 | src/explorer-journey.js | Connects scroll chapters, selected scenes, and pause controls |
 | src/explorer-journey.css | Fixed-width landscape panel, responsive columns, and lighter palette |
+| src/academic.css | Research-focused typography, colours, reading sizes, and print layout |
 | public/journey-art/ | Selected GIF loops and still frames for the explorer's journey |
 | public/pixel-river/CREDITS.md | Credits for the archived earlier community-sprite draft |
 | src/premium.css | General typography, colours, and page styling |

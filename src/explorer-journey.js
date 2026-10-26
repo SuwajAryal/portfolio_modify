@@ -1,9 +1,9 @@
 // The owner-selected four-frame pixel scenes are local assets. Ordinary CSS
 // handles crossfades; this module connects the page chapters and pause controls.
 const scenes = {
-  himalayas:{step:'01 / 03',region:'HIMALAYAS',title:'Every river starts somewhere.',description:'Cold air, snowy trails, and the first headwaters.'},
-  hills:{step:'02 / 03',region:'THE HILLS',title:'Following the ridgeline.',description:'Green slopes, winding paths, and rivers finding their way downstream.'},
-  terai:{step:'03 / 03',region:'THE TERAI',title:'Room for the river to breathe.',description:'The land opens out. A wider channel, quieter banks, and a different pace.'},
+  himalayas:{step:'01 / 03',region:'HIMALAYAS',title:'Where it all begins.',description:'High in the mountains, a small stream begins its journey.'},
+  hills:{step:'02 / 03',region:'THE HILLS',title:'Finding a way through.',description:'Streams meet, wind through the hills, and carry the story downstream.'},
+  terai:{step:'03 / 03',region:'THE TERAI',title:'Into the open plains.',description:'A broad channel, low banks, and room for the river’s next chapter.'},
 };
 const sections=[...document.querySelectorAll('body > [data-landscape-region]')];
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
@@ -13,11 +13,11 @@ let pending=0;
 
 // On phones, show the same artwork at the start of each chapter rather than
 // squeezing the reading column beside a large fixed panel.
-for (const [name,target] of [['himalayas','.hero-cta'],['hills','#expTimeline'],['terai','#skillsFlex']]) {
+for (const [name,target] of [['himalayas','.hero-cta'],['hills','#researchThemes'],['terai','#skillsFlex']]) {
   const figure=document.createElement('figure');
   figure.className='mobile-landscape';
   figure.dataset.mobileRegion=name;
-  figure.innerHTML=`<img data-scene="${name}" src="${import.meta.env.BASE_URL}journey-art/${name}-still.png" alt="${scenes[name].description}" loading="lazy"><figcaption><span>${scenes[name].region}</span><button type="button" data-art-pause aria-pressed="false">Pause animation</button></figcaption>`;
+  figure.innerHTML=`<p class="mobile-river-story">${name==='himalayas'?'The story of Nepal’s rivers.':scenes[name].title}</p><img data-scene="${name}" src="${import.meta.env.BASE_URL}journey-art/${name}-still.png" alt="${scenes[name].description}" loading="lazy"><p class="mobile-river-description">${scenes[name].description}</p><figcaption><span>${scenes[name].region}</span><button type="button" data-art-pause aria-pressed="false">Pause animation</button></figcaption>`;
   document.querySelector(target).before(figure);
 }
 const images=[...document.querySelectorAll('[data-scene]')];
