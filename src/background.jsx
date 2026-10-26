@@ -142,4 +142,7 @@ function Background() {
   </>;
 }
 
-createRoot(document.getElementById('river-scene')).render(<Background />);
+// Reuse the root when Vite refreshes this file while we experiment.
+const root = import.meta.hot?.data.root ?? createRoot(document.getElementById('river-scene'));
+root.render(<Background />);
+if (import.meta.hot) import.meta.hot.dispose(data => { data.root = root; });
