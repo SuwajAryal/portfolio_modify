@@ -24,12 +24,13 @@ website's credits page for source links and notices.
 
 ## How it behaves
 
-The lighter page palette progresses from snow to hill-green to Terai-sand.
-The hero provides a comparison between real Trishuli River footage, an existing
-2D community mountain animation, and a still background. These sourced assets
-are not a connected mountains-to-plains simulation. Backgrounds pause in hidden
-tabs, offer a Still option, and default to still for reduced-motion preferences.
-The 2D player loads only when selected; video is streamed rather than bundled.
+A full-height pixel-art landscape runs along the left side of the page:
+snowy Himalayas, rocky foothills, green hills, then Terai fields. Tributaries
+join a widening river with continuously animated water. Existing community
+artwork is arranged with ordinary 2D Canvas code; no video, Lottie, React, or
+3D scene is used for this strip. Pause water stops the sprite animation, and
+reduced-motion preferences start it paused. It also pauses in hidden tabs.
+The composition is inspired by Nepal, not an accurate map or flow model.
 Experience is sorted by confirmed start year, newest first (2026, 2025, 2024,
 2023), while the education map retains its bachelor’s-to-master’s sequence.
 Undated projects and honours do not receive invented dates.
@@ -104,6 +105,9 @@ is unchanged; the Word source is not bundled with the website.
 | scripts/prepare-nepal-data.mjs | Recreates that extract from pinned source files; full downloads stay in the ignored .cache folder |
 | src/journey.css | Sticky map and responsive story layout |
 | src/portfolio.js | Fills the portfolio and education cards; connects Motion/Lucide |
+| src/pixel-river.js | Arranges community sprites into the vertical landscape and plays the water frames |
+| src/landscape.css | Left-side landscape placement and the lighter page palette |
+| public/pixel-river/CREDITS.md | Pixel-art creators, source links, modifications, and licences |
 | src/premium.css | General typography, colours, and page styling |
 | src/scene-loader.js | Loads the optional map separately from the main content |
 | public/sources.html | Visitor-facing credits |

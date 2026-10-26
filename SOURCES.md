@@ -2,23 +2,21 @@
 
 No AI-generated images, models, textures, or terrain are used.
 
-## Reused background media
+## Vertical pixel-art river
 
-- Real video: “Trishuli River at Pida Village, Dhading District, Nepal”, Muhammad
-  Saddam Hussein, 23 August 2026. CC BY 4.0. Source:
-  https://commons.wikimedia.org/wiki/File:Trishuli_River_at_Pida_Village,_Dhading_District,_Nepal.webm
-  Streamed using the existing 480p VP9 transcode, muted, looped, cropped, and
-  displayed beneath a colour overlay. No video file is bundled in the repo.
-- Existing 2D animation: “Cold Mountain Background”, Felipe Da Silva Pinho.
-  https://lottiefiles.com/free-animation/cold-mountain-background-5t8uh8iJBQ
-  Original unmodified JSON: https://assets-v2.lottiefiles.com/a/8c483b7a-116a-11ee-ae31-a77a03f91f68/WMaeQ2fkWm.json
-  Lottie Simple License, included at public/landscape/LICENSE.txt.
-  The generic artwork is not presented as actual Nepal geography.
-- Player: https://github.com/airbnb/lottie-web (MIT). Dependency notices are
-  included by the existing build process. No React or 3D background is added.
+The previous video and Lottie backgrounds are removed. A single full-height left
+strip arranges existing 2D sprites into a Nepal-inspired landscape. Snow artwork
+is by CraftPix.net (OGA-BY 3.0); ground, trees, and crops are by Shade (CC0);
+cliffs are by Luis Zuno / Ansimuz (CC0); the existing 13-frame water animation
+is by InThePixel (CC0). Sources, original filenames, and display modifications
+are recorded in public/pixel-river/CREDITS.md, alongside the supplied notices.
 
-Snow, green, and sand page colours follow the mountains, hills, and Terai concept.
-These media do not simulate a connected river flowing through all three regions.
+Code lays out the sprites, joins channels, and rotates the existing water strip
+so its animation runs downward. It does not generate new visual assets. All
+four image files are served locally. The rail needs no external animation
+library, video stream, WebGL, or React. The existing geographic education map
+continues to use MapLibre separately. The pixel illustration is not a surveyed
+river system or a physical flow simulation.
 
 | Part | Source | License / attribution |
 | --- | --- | --- |

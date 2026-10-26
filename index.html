@@ -15,10 +15,16 @@
   <link rel="stylesheet" href="/src/landscape.css" />
 </head>
 <body>
-<div class="landscape-stage" aria-hidden="true">
-  <video id="river-background" muted loop playsinline preload="none"></video>
-  <div id="illustrated-background" hidden></div>
-</div>
+<aside class="pixel-river-rail" aria-label="An illustrated river from the Himalayas to the Terai">
+  <div class="pixel-river-heading">NEPAL<span>FROM SOURCE TO PLAINS</span></div>
+  <div class="pixel-river-scene">
+    <canvas id="pixel-river" width="192" height="640" role="img" aria-label="Pixel-art snowy mountains above rocky foothills, green hills, and Terai fields. Tributaries join a river flowing down through the scene."></canvas>
+    <span class="river-region region-snow">HIMALAYAS</span>
+    <span class="river-region region-hills">HILLS</span>
+    <span class="river-region region-terai">TERAI</span>
+  </div>
+  <div class="pixel-river-footer"><button type="button" id="pixel-river-pause" aria-pressed="false">Pause water</button><a href="./sources.html#landscape">Art credits ↗</a></div>
+</aside>
 
 <!-- ====== NAV ====== -->
 <nav id="nav">
@@ -71,16 +77,6 @@
         <a href="./Resume_suwaj.pdf" class="btn btn-outline" download>Download CV <i data-lucide="download"></i></a>
       </div>
       <div class="hero-disciplines"><span>HYDRAULICS</span><span>SEDIMENT</span><span>SCIENTIFIC COMPUTING</span></div>
-      <fieldset class="landscape-controls">
-        <legend>Try a landscape background</legend>
-        <div class="landscape-options">
-          <button type="button" data-landscape="river" aria-pressed="true">Nepal river film</button>
-          <button type="button" data-landscape="illustration" aria-pressed="false">2D mountain scene</button>
-          <button type="button" data-landscape="still" aria-pressed="false">Still</button>
-        </div>
-        <p id="landscape-note">Real flowing water on the Trishuli River, Nepal. Muted, reusable community footage.</p>
-        <a id="landscape-credit" href="./sources.html#landscape">Footage and animation credits ↗</a>
-      </fieldset>
     </div>
   </div>
   <a class="scroll-cue" href="#about"><i data-lucide="arrow-down"></i> Explore the portfolio</a>
@@ -217,7 +213,7 @@
 <!-- ====== DATA + ENGINE ====== -->
 <script type="module" src="/src/scene-loader.js"></script>
 <script type="module" src="/src/portfolio.js"></script>
-<script type="module" src="/src/landscape.js"></script>
+<script type="module" src="/src/pixel-river.js"></script>
 
 </body>
 </html>
