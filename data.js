@@ -2,7 +2,7 @@
 //  PORTFOLIO DATA: Edit ONLY this file to update your site!
 // ============================================================
 
-const DATA = {
+export const DATA = {
 
   // ──────────────────────────────────────────────────
   //  PERSONAL INFO
