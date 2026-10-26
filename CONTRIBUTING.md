@@ -1,6 +1,6 @@
 # Project preferences
 
-- Do not use AI-generated images, models, textures, or other visual assets.
+- Do not use AI-generated images, models, textures, or other visual assets unless explicitly requested by the owner. The owner has allowed original pixel-art animation drafts for the Himalaya–hills–Terai character journey; keep these as standalone previews until selected.
 - Prefer existing open-source components, official examples, and community assets.
 - Explain useful library options and what they contribute before choosing a new visual direction.
 - Connect and customise existing parts through code. Do not reinvent a visual effect when a suitable community implementation exists.

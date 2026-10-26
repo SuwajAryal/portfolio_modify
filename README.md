@@ -24,13 +24,11 @@ website's credits page for source links and notices.
 
 ## How it behaves
 
-A full-height pixel-art landscape runs along the left side of the page:
-snowy Himalayas, rocky foothills, green hills, then Terai fields. Tributaries
-join a widening river with continuously animated water. Existing community
-artwork is arranged with ordinary 2D Canvas code; no video, Lottie, React, or
-3D scene is used for this strip. Pause water stops the sprite animation, and
-reduced-motion preferences start it paused. It also pauses in hidden tabs.
-The composition is inspired by Nepal, not an accurate map or flow model.
+The previous pixel-art strip has been removed from the page. Replacement
+Himalaya, hills, and Terai animations are being reviewed as standalone drafts;
+they are not integrated or shipped with the website. The eventual selected
+left-side landscape is intended to widen downhill toward roughly half the
+page at the Terai. The existing geographic map and portfolio content remain.
 Experience is sorted by confirmed start year, newest first (2026, 2025, 2024,
 2023), while the education map retains its bachelor’s-to-master’s sequence.
 Undated projects and honours do not receive invented dates.

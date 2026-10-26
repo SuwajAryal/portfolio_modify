@@ -4,6 +4,10 @@ No AI-generated images, models, textures, or terrain are used.
 
 ## Vertical pixel-art river
 
+This earlier draft has been removed from the rendered page. Its source artwork
+and code are retained for reference. New original pixel-art drafts are being
+reviewed separately and are not integrated into this website.
+
 The previous video and Lottie backgrounds are removed. A single full-height left
 strip arranges existing 2D sprites into a Nepal-inspired landscape. Snow artwork
 is by CraftPix.net (OGA-BY 3.0); ground, trees, and crops are by Shade (CC0);

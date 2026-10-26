@@ -4,7 +4,7 @@
   --accent: #286754; --accent2: #437666; --accent3: #8b6635;
   --text: #334b44; --text-dim: #50665d; --text-bright: #173f34;
 }
-:root { --river-rail-width: clamp(150px, 16vw, 240px); }
+:root { --river-rail-width: 0px; }
 body { background: #eef3ef; color: var(--text); padding-left: var(--river-rail-width); }
 nav { left: var(--river-rail-width); }
 nav.scrolled { box-shadow: 0 4px 24px #23472f12; }
@@ -53,7 +53,7 @@ nav { background: #f7faf4f0; border-color: #254d3520; }
 .tl-dot { background: #eef3e9; border-color: #306c55; }
 .experience-year { color: #7e5b2d; font-size: 1.1rem; font-weight: 600; margin-bottom: .8rem; }
 @media (min-width: 769px) and (max-width: 1120px) {
-  :root { --river-rail-width: 120px; }
+  :root { --river-rail-width: 0px; }
   .nav-links { gap: .5rem; }
   .nav-links a { font-size: .65rem; }
   .nav-inner { padding-inline: .8rem; }
@@ -61,7 +61,7 @@ nav { background: #f7faf4f0; border-color: #254d3520; }
   .journey-map-caption { padding-inline: .8rem; }
 }
 @media (max-width: 768px) {
-  :root { --river-rail-width: 62px; }
+  :root { --river-rail-width: 0px; }
   .nav-links { background: #f7faf4; }
   .pixel-river-heading { font-size: .6rem; padding: 21px 5px; letter-spacing: .08em; text-align: center; }
   .pixel-river-heading span { display: none; }
