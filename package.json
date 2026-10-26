@@ -4,14 +4,17 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "prebuild": "node scripts/write-notices.mjs",
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {
-    "@react-three/fiber": "^9.0.0",
+    "lucide": "^1.61.0",
+    "motion": "^14.6.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-globe.gl": "^2.38.0",
     "three": "^0.180.0"
   },
   "devDependencies": {

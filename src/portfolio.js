@@ -1,53 +1,30 @@
 import { DATA } from '../data.js';
+import { animate, inView } from 'motion';
+import { createIcons, MapPin, Mail, Phone, ArrowUpRight, ArrowDown, Download,
+  Waves, Zap, Globe, Wrench, Music, BookOpen, Mountain, Gamepad2, Trophy, GraduationCap, Link } from 'lucide';
 (function () {
   const d = DATA;
 
   // ── Helpers ──
   const $ = id => document.getElementById(id);
-  const iconMap = {
-    football:    "\u26BD",
-    cricket:     "\uD83C\uDFCF",
-    tabletennis: "\uD83C\uDFD3",
-    gaming:      "\uD83C\uDFAE",
-    guitar:      "\uD83C\uDFB8",
-    manga:       "\uD83D\uDCDA",
-    hiking:      "\u26F0\uFE0F",
-  };
+  const iconMap = { football: 'trophy', cricket: 'trophy', tabletennis: 'trophy',
+    gaming: 'gamepad-2', guitar: 'music', manga: 'book-open', hiking: 'mountain' };
 
   // ── Nav ──
   $('nav-logo').textContent = d.firstName || d.name.split(' ')[0];
 
   // ── Hero ──
-  $('heroName').textContent = d.name;
+  $('heroName').replaceChildren(...d.name.split(' ').map(word => {
+    const span = document.createElement('span'); span.textContent = word; return span;
+  }));
   $('heroTagline').textContent = d.tagline;
 
   // Hero chips
   $('heroChips').innerHTML = `
-    <span class="chip"><span class="chip-icon">\uD83D\uDCCD</span>${d.location}</span>
-    <a class="chip" href="mailto:${d.email}"><span class="chip-icon">\u2709</span>${d.email}</a>
-    <a class="chip" href="tel:${d.phone.replace(/\s/g,'')}"><span class="chip-icon">\uD83D\uDCDE</span>${d.phone}</a>
+    <span class="chip"><i data-lucide="map-pin"></i> Kathmandu, Nepal</span>
   `;
 
-  // Typing effect
-  const typed = $('heroTyped');
-  let wordIdx = 0, charIdx = 0, deleting = false;
-  function typeLoop() {
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      typed.textContent = d.heroWords[0];
-      return;
-    }
-    const word = d.heroWords[wordIdx];
-    if (!deleting) {
-      typed.textContent = word.slice(0, ++charIdx);
-      if (charIdx === word.length) { deleting = true; setTimeout(typeLoop, 2000); return; }
-      setTimeout(typeLoop, 90);
-    } else {
-      typed.textContent = word.slice(0, --charIdx);
-      if (charIdx === 0) { deleting = false; wordIdx = (wordIdx + 1) % d.heroWords.length; setTimeout(typeLoop, 400); return; }
-      setTimeout(typeLoop, 45);
-    }
-  }
-  typeLoop();
+  $('heroTyped').textContent = d.title;
 
   // ── About ──
   const aboutParts = d.aboutStory.split('\n\n');
@@ -55,9 +32,9 @@ import { DATA } from '../data.js';
     `<span class="lead">${d.aboutIntro}</span>` +
     aboutParts.map(p => `<p style="margin-bottom:.75rem">${p.trim()}</p>`).join('');
 
-  $('aboutSidebar').innerHTML = d.aboutHighlights.map(h => `
+  $('aboutSidebar').innerHTML = d.aboutHighlights.map((h, index) => `
     <div class="about-stat">
-      <div class="about-stat-value">${h.icon}</div>
+      <div class="about-stat-value"><i data-lucide="${['waves','zap','globe','wrench'][index] || 'globe'}"></i></div>
       <div class="about-stat-label">${h.label}</div>
     </div>
   `).join('');
@@ -129,7 +106,7 @@ import { DATA } from '../data.js';
   // ── Beyond Engineering ──
   $('beyondGrid').innerHTML = d.beyondEngineering.map(b => `
     <div class="card beyond-card">
-      <div class="beyond-icon">${iconMap[b.icon] || '\u2728'}</div>
+      <div class="beyond-icon"><i data-lucide="${iconMap[b.icon] || 'globe'}"></i></div>
       <div>
         <p class="beyond-title">${b.title}</p>
         <p class="beyond-desc">${b.description}</p>
@@ -146,82 +123,66 @@ import { DATA } from '../data.js';
   // ── Contact ──
   $('contactGrid').innerHTML = `
     <div class="card contact-card">
-      <span class="chip-icon">\u2709\uFE0F</span>
+      <span class="chip-icon"><i data-lucide="mail"></i></span>
       <p class="contact-label">Personal Email</p>
       <a class="contact-value" href="mailto:${d.email}">${d.email}</a>
     </div>
     <div class="card contact-card">
-      <span class="chip-icon">\uD83C\uDFEB</span>
+      <span class="chip-icon"><i data-lucide="graduation-cap"></i></span>
       <p class="contact-label">Academic Email</p>
       <a class="contact-value" href="mailto:${d.academicEmail}">${d.academicEmail}</a>
     </div>
     <div class="card contact-card">
-      <span class="chip-icon">\uD83D\uDCDE</span>
+      <span class="chip-icon"><i data-lucide="phone"></i></span>
       <p class="contact-label">Phone</p>
       <a class="contact-value" href="tel:${d.phone.replace(/\s/g,'')}">${d.phone}</a>
     </div>
     <div class="card contact-card">
-      <span class="chip-icon">\uD83D\uDCCD</span>
+      <span class="chip-icon"><i data-lucide="map-pin"></i></span>
       <p class="contact-label">Location</p>
       <p class="contact-value">${d.location}</p>
     </div>
-    ${d.social.linkedin ? `<div class="card contact-card"><span class="chip-icon">\uD83D\uDD17</span><p class="contact-label">LinkedIn</p><a class="contact-value" href="${d.social.linkedin}" target="_blank">View Profile</a></div>` : ''}
-    ${d.social.github ? `<div class="card contact-card"><span class="chip-icon">\uD83D\uDCBB</span><p class="contact-label">GitHub</p><a class="contact-value" href="${d.social.github}" target="_blank">View Profile</a></div>` : ''}
+    ${d.social.linkedin ? `<div class="card contact-card"><span class="chip-icon"><i data-lucide="link"></i></span><p class="contact-label">LinkedIn</p><a class="contact-value" href="${d.social.linkedin}" target="_blank">View Profile</a></div>` : ''}
+    ${d.social.github ? `<div class="card contact-card"><span class="chip-icon"><i data-lucide="globe"></i></span><p class="contact-label">GitHub</p><a class="contact-value" href="${d.social.github}" target="_blank">View Profile</a></div>` : ''}
   `;
 
   // ── Footer ──
   $('footer').innerHTML = `
     <p class="footer-quote">"${d.footerQuote}"</p>
     <p class="footer-copy">&copy; ${new Date().getFullYear()} ${d.name}. Built with curiosity and code.</p>
+    <p class="source-credit"><a href="./sources.html">Community code & geographic data credits ↗</a></p>
   `;
 
   // ── Mobile Nav ──
-  $('navToggle').addEventListener('click', () => $('navLinks').classList.toggle('open'));
+  $('navToggle').addEventListener('click', () => {
+    const open = $('navLinks').classList.toggle('open');
+    $('navToggle').setAttribute('aria-expanded', String(open));
+  });
   document.querySelectorAll('.nav-links a').forEach(a =>
-    a.addEventListener('click', () => $('navLinks').classList.remove('open'))
+    a.addEventListener('click', () => {
+      $('navLinks').classList.remove('open');
+      $('navToggle').setAttribute('aria-expanded', 'false');
+    })
   );
 
   // ── Scroll: nav shadow + reveal ──
   const nav = $('nav');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  // Motion's documented inView + animate pattern. Content remains visible if
+  // animation is unavailable, and reduced-motion readers get a still layout.
+  const preference = matchMedia('(prefers-reduced-motion: reduce)');
+  const animations = new Set();
+  inView('.reveal', element => {
+    if (preference.matches) return;
+    const animation = animate(element, { opacity: [0, 1], y: [18, 0] }, { duration: .55 });
+    animations.add(animation);
+    animation.finished.then(() => animations.delete(animation));
+  }, { amount: .08 });
+  preference.addEventListener('change', () => {
+    if (preference.matches) { animations.forEach(animation => animation.complete()); animations.clear(); }
+  });
+  createIcons({ icons: { MapPin, Mail, Phone, ArrowUpRight, ArrowDown, Download,
+    Waves, Zap, Globe, Wrench, Music, BookOpen, Mountain, Gamepad2, Trophy, GraduationCap, Link },
+    attrs: { 'aria-hidden': 'true' } });
 
-  // ── Scroll: nav shadow + Nepal photo transitions ──
-  const bg = document.querySelector('.nepal-photo-bg');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-
-    // Smooth photo background transitions based on scroll position
-    const scrollPct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-
-    // Himalaya: full at top, fades out by 35%
-    const himalaya = Math.max(0, 1 - scrollPct * 3.5);
-    // Hills: fades in from 15%, peaks at 50%, fades out by 75%
-    const hills = Math.max(0, scrollPct < 0.15 ? 0 : scrollPct < 0.5 ? (scrollPct - 0.15) * 2.85 : 1 - (scrollPct - 0.5) * 3);
-    // Terai: fades in from 55%, full by 80%
-    const terai = Math.max(0, Math.min(1, (scrollPct - 0.55) * 4));
-
-    bg.style.setProperty('--himalaya-opacity', himalaya);
-    bg.style.setProperty('--hills-opacity', hills);
-    bg.style.setProperty('--terai-opacity', terai);
-  }, { passive: true });
-
-  // ── Floating green particles ──
-  const particleBox = $('particles');
-  for (let i = 0; i < 18; i++) {
-    const p = document.createElement('div');
-    p.className = 'particle';
-    const size = Math.random() * 4 + 2;
-    p.style.cssText = `
-      width:${size}px; height:${size}px;
-      left:${Math.random()*100}%;
-      animation-duration:${Math.random()*12+10}s;
-      animation-delay:${Math.random()*10}s;
-      opacity:${Math.random()*.3+.1};
-    `;
-    particleBox.appendChild(p);
-  }
-
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
 })();

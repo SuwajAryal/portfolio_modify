@@ -1,70 +1,95 @@
-# Suwaj's portfolio: 3D experiment
+# Suwaj's portfolio — Earth and rivers
 
-An independent copy of [the original portfolio](https://suwajaryal.github.io), exploring a React Three Fiber background. Work here does not update the original website. This repository is not deployed automatically.
+A separate experiment for [Suwaj Aryal's portfolio](https://suwajaryal.github.io).
+This version uses community software and public-domain map data. No AI-generated
+images, models, textures, or hand-built terrain are used.
 
-## First experiment
+## What we are combining
 
-The introduction has a stylised Himalayan river valley, flowing particles, subtle pointer movement, and a pause button. The terrain is an artistic illustration, not surveyed geography or a hydraulic simulation.
+| Source | What it contributes |
+| --- | --- |
+| React Globe.gl + Three.js | Existing interactive globe, camera, atmosphere, country polygons, and river paths |
+| Natural Earth | Actual country boundaries and river centre lines |
+| Motion | Subtle section entrances, respecting reduced-motion preferences |
+| Lucide | Consistent open-source interface icons |
 
-The scene pauses when the introduction is out of view or the browser tab is hidden. Reduced-motion preferences produce a still scene. A gradient remains if 3D cannot load. The existing biography and project sections remain plain HTML and JavaScript.
+The globe follows the official React Globe.gl country example and documented path
+layer. All sources and notices are listed in [SOURCES.md](SOURCES.md) and on the
+website's credits page. Project preferences are saved in [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## Run it on your computer
+## Try the features
 
-Install the current Node.js LTS from https://nodejs.org, then open a terminal in this folder:
+- Drag the globe or use the west/east arrow buttons.
+- Choose Nepal or World for a preset view.
+- Select the Ganges, Brahmaputra, Nile, or Amazon to focus on that river.
+- Toggle Rivers and Borders independently.
+- Enable auto-rotation if desired. It is off initially and disabled for reduced motion.
+- Select a country or river on the globe to focus it.
+
+The globe pauses its rendering when off-screen or when its browser tab is hidden.
+Mouse-wheel zoom is disabled so visitors can scroll the portfolio normally.
+Keyboard buttons provide alternatives to dragging the globe.
+
+Natural Earth's small-scale maps omit many smaller rivers. This is geographic
+exploration, not a hydraulic simulation, discharge visualisation, or survey map.
+
+## Run locally
+
+Install Node.js LTS from https://nodejs.org, then open a terminal in this folder:
 
 ```sh
 npm install
 npm run dev
 ```
 
-Open the Local address printed by Vite. On Windows, use `npm.cmd` instead of `npm` if PowerShell blocks the npm script.
-
-To check the finished website files:
+Open the Local address printed by Vite. On Windows, use `npm.cmd` if PowerShell
+blocks the `npm` script.
 
 ```sh
 npm run build
 npm run preview
 ```
 
-Vite produces a `dist` folder ready for static hosting. Node.js is needed to develop and build; visitors do not need to install it.
+The build creates `dist`, including geographic data and community license notices.
+The original portfolio and this experiment have separate repositories. This
+repository does not automatically publish a live website.
 
-## Learn the files
+## Where to edit
 
-| File | What it does |
+| File | Purpose |
 | --- | --- |
-| `data.js` | Your biography, projects, education, and contact information. Edit this for content changes. |
-| `index.html` | Page structure and the empty container where React draws the scene. |
-| `style.css` | Colours, layout, overlays, responsive behaviour, and fallback appearance. |
-| `src/portfolio.js` | Your original page-populating JavaScript, moved out of the HTML. |
-| `src/scene-loader.js` | Downloads the optional 3D feature separately from portfolio content. |
-| `src/background.jsx` | React components describing the terrain, river, lights, and animation. |
-| `public/Resume_suwaj.pdf` | Resume copied unchanged into the built website. |
-| `package.json` | Lists the libraries and development commands. |
-| `package-lock.json` | Records exact installed library versions. |
-| `vite.config.js` | Configures the tool that prepares source files for browsers. |
+| `data.js` | Your biography, projects, education, skills, and contact information |
+| `index.html` | Page structure and the globe container |
+| `style.css` | Original base styles |
+| `src/premium.css` | Updated layout, typography, globe controls, and responsive styles |
+| `src/portfolio.js` | Fills the page from data.js; connects Motion and Lucide |
+| `src/globe.jsx` | Connects the existing globe component to map data and controls |
+| `src/geographic-data.js` | Reads GeoJSON; splits river lines into paths the library accepts |
+| `src/scene-loader.js` | Loads the optional globe separately from the portfolio content |
+| `public/data/` | Natural Earth datasets copied unchanged from the cited revision |
+| `public/sources.html` | Visitor-facing credits |
+| `scripts/write-notices.mjs` | Collects installed dependency license texts for the build |
+| `public/Resume_suwaj.pdf` | Original CV, unchanged |
 
-## Understand one 3D object
+React is still JavaScript. Here it controls the Earth explorer; the rest of the
+portfolio remains ordinary HTML and JavaScript. React Globe.gl already uses
+Three.js internally, so React Three Fiber is not needed for this component.
 
-In `src/background.jsx`, a `<mesh>` combines geometry (shape) and material (surface appearance). `<Canvas>` supplies the drawing area and camera. Lights illuminate the scene. `useFrame` runs a function during each rendered frame, moving the river particles. JSX is JavaScript syntax that lets us describe these components using tags.
+## Learn by changing one thing
 
-First experiments to try:
+1. In `src/globe.jsx`, change `NEPAL.altitude`: a smaller value moves closer.
+2. Change `atmosphereColor` to adjust the globe's halo.
+3. Change the river and country colour settings without changing the geography.
+4. Add another named river to `riverOptions` if that name exists in the source data.
+5. In `src/premium.css`, change the page spacing or typography.
 
-1. Change the river material's `color` value and observe the result.
-2. Change the camera's `position` to view the valley from another angle.
-3. Change the `0.045` flow-speed multiplier inside `useFrame`.
-4. Change a project description in `data.js` and confirm content editing still works independently.
+This is integration code: the community libraries provide the rendering and
+interaction systems; our modules connect them to this portfolio.
 
-React 19 is paired with React Three Fiber 9. No TypeScript or full React rewrite is required.
+## Suggested next community integrations
 
-## Validation and publishing
+- [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/): a detailed map of a real project, with your watershed boundaries or flood extents exported from GIS as GeoJSON. Unlike the global overview, this would let visitors inspect an actual study area. Map tiles and any additional datasets need their own sources and attribution.
+- [Plotly.js](https://plotly.com/javascript/): interactive hydrographs, sediment rating curves, or model-versus-observation plots using your own research results.
 
-The GitHub workflow checks installation and the production build on pushes and pull requests. It does not publish a website. Check desktop and phone layouts, CV download, navigation, pause/resume, reduced motion, and graphics fallback before deployment.
-
-To publish later, use a separate GitHub Pages deployment for this repository and its built `dist` folder. Keep the original portfolio repository unchanged until the experiment is ready.
-
-## References
-
-- [Add React to an existing project](https://react.dev/learn/add-react-to-an-existing-project)
-- [React Three Fiber: first scene](https://r3f.docs.pmnd.rs/getting-started/your-first-scene)
-- [React Three Fiber: performance](https://r3f.docs.pmnd.rs/advanced/scaling-performance)
-- [Vite: GitHub Pages deployment](https://vite.dev/guide/static-deploy.html#github-pages)
+These are suggestions, not installed features. They would add evidence of your
+engineering work. We should select actual project data before building them.

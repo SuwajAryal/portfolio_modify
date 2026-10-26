@@ -10,24 +10,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css?v=2" />
+  <link rel="stylesheet" href="/src/premium.css" />
 </head>
 <body>
-
-<!-- ====== NEPAL PHOTO BACKGROUNDS ====== -->
-<div class="nepal-photo-bg">
-  <div class="photo-layer photo-himalaya"></div>
-  <div class="photo-layer photo-hills"></div>
-  <div class="photo-layer photo-terai"></div>
-  <div class="photo-overlay"></div>
-</div>
-
-<div class="particles" id="particles"></div>
 
 <!-- ====== NAV ====== -->
 <nav id="nav">
   <div class="nav-inner">
     <a href="#hero" class="nav-logo" id="nav-logo"></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">&#9776;</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#education">Education</a></li>
@@ -43,13 +34,10 @@
 
 <!-- ====== HERO ====== -->
 <header class="hero" id="hero">
-  <div class="river-scene" id="river-scene" aria-hidden="true"></div>
-  <div class="river-shade" aria-hidden="true"></div>
-  <div id="scene-controls"></div>
   <div class="hero-layout">
     <!-- Left: Text -->
     <div class="hero-text">
-      <p class="hero-greeting">Namaste, I'm</p>
+      <p class="hero-greeting">NAMASTE. FROM THE HIMALAYAS.</p>
       <h1 id="heroName"></h1>
       <p class="hero-typed-wrap">
         <span class="hero-typed" id="heroTyped"></span>
@@ -57,11 +45,16 @@
       <p class="hero-tagline" id="heroTagline"></p>
       <div class="hero-chips" id="heroChips"></div>
       <div class="hero-cta">
-        <a href="#research" class="btn btn-primary">Explore My Work</a>
-        <a href="#contact" class="btn btn-outline">Let's Connect</a>
+        <a href="#research" class="btn btn-primary">Explore My Work <i data-lucide="arrow-up-right"></i></a>
+        <a href="./Resume_suwaj.pdf" class="btn btn-outline" download>Download CV <i data-lucide="download"></i></a>
       </div>
+      <div class="hero-disciplines"><span>HYDRAULICS</span><span>SEDIMENT</span><span>SCIENTIFIC COMPUTING</span></div>
+    </div>
+    <div class="globe-panel" id="earth-globe" role="region" aria-label="Interactive Earth and river explorer">
+      <p class="globe-message">Loading the river explorer…</p>
     </div>
   </div>
+  <a class="scroll-cue" href="#about"><i data-lucide="arrow-down"></i> Explore the portfolio</a>
 </header>
 
 <!-- ====== ABOUT ====== -->
