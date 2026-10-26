@@ -7,9 +7,9 @@ No AI-generated images, models, textures, or terrain are used.
 | Map renderer and terrain | https://github.com/maplibre/maplibre-gl-js | BSD-3-Clause; full installed notice included in public/community-licenses.txt |
 | Scroll-driven camera approach | https://maplibre.org/maplibre-gl-js/docs/examples/fly-to-a-location-based-on-scroll-position/ | Official MapLibre example, adapted to this portfolio's sections and degree entries |
 | Terrain and hillshade patterns | https://maplibre.org/maplibre-gl-js/docs/examples/3d-terrain/ and https://maplibre.org/maplibre-gl-js/docs/examples/add-a-hillshade-layer/ | Official MapLibre examples |
-| Hosted Liberty map style and tiles | https://openfreemap.org/quick_start/ | OpenFreeMap; built-in source attribution preserved |
-| Map data | https://www.openstreetmap.org/copyright | OpenStreetMap contributors, ODbL; source attribution remains visible on the map |
-| Vector tile schema / cartography | https://openmaptiles.org/ | OpenMapTiles attribution supplied by the hosted source |
+| Satellite raster integration | https://maplibre.org/maplibre-gl-js/docs/examples/display-a-satellite-map/ | Official MapLibre example; uses the original EOX 2016 layer rather than the example's newer vintage |
+| Satellite photographs | https://cloudless.eox.at/documentation/faq and https://cloudless.eox.at/license-non-commercial | EOxCloudless original 2016 layer, CC BY 4.0; full linked attribution visible on map and screenshots |
+| Label font glyph hosting | https://openfreemap.org/ | Noto Sans glyph endpoint; the previous Liberty street/vector basemap is not used |
 | Himalayan elevation tiles | https://mapterhorn.com/data-access/ | Open elevation sources; attribution and individual data terms at https://mapterhorn.com/attribution/ . Mapterhorn attribution is included on the map. |
 | Nepal boundary, rivers, and mountain points | https://www.naturalearthdata.com/ | Public domain; geographic coordinates extracted without redrawing or rounding |
 | Section transitions | https://motion.dev/docs/inview | MIT |
@@ -30,8 +30,8 @@ The 1:10m name means 1:10 million map scale, not 10-metre spatial resolution.
 regional bounding box [79,25.5,89,31.5], and three mountain points. It preserves
 source coordinates and river identifiers. These are generalised features and
 do not represent a complete tributary inventory. Raw files are cached locally;
-only the 149 KB regional extract is shipped. Street/campus detail and finer
-waterways come from live OpenFreeMap/OpenStreetMap tiles.
+only the 149 KB regional extract is shipped. Photographic context comes from
+EOX satellite tiles. No street-map tiles or extruded building overlays are used.
 
 River display aliases connect source names Ghäghara, Gandak, and Sapt to the
 Karnali–Ghaghara, Gandaki–Narayani, and Koshi/Saptakoshi systems. The source names
@@ -60,13 +60,38 @@ campus coordinate. No route between two different campuses is implied.
 
 ## Integration changes
 
-Our code connects chapter positions to MapLibre flyTo/jumpTo, builds the sticky
+Our code connects chapter positions to MapLibre easeTo/jumpTo, builds the sticky
 reading layout, adds a campus label, and honours pause and reduced-motion settings.
-The community library renders the terrain and detailed map; the existing hosted
-Liberty style supplies the cartography. The old React Globe.gl explorer is
+The community library renders satellite photographs draped over elevation data.
+The old React Globe.gl explorer is
 removed in this revision and remains available only in Git history.
 
-The map requests remote style, font, sprite, and vector tile resources from
-OpenFreeMap, plus elevation tiles from Mapterhorn. It does not need a private API key or collect visitor location.
+## Satellite layer and camera alignment
+
+The EOX WMTS capabilities identify `s2cloudless_3857` as the original 2016 layer:
+https://tiles.maps.eox.at/wmts/1.0.0/WMTSCapabilities.xml . The HTTPS tile template is
+`https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless_3857/default/g/{z}/{y}/{x}.jpg`.
+EOX confirms the original 2016 product permits commercial and non-commercial
+embedded basemaps under CC BY 4.0. Newer vintages have different conditions and
+must not be substituted without checking them. We stream tiles directly, with
+no bulk download, tile redistribution, or local imagery copies.
+
+The required on-screen attribution follows the current EOX guide:
+EOxCloudless https://cloudless.eox.at by EOX IT Services GmbH
+(Contains modified Copernicus Sentinel data 2016 & 2017), CC BY 4.0.
+It stays visible in the map's attribution control rather than inside a collapsed
+menu. Screenshots and exported media must retain that embedded attribution.
+
+This is an older Sentinel mosaic, not current imagery. Raster requests are
+capped at level 14 and campus camera zoom at 13 to avoid promising building-level
+detail. The tile year and attribution are centralised in src/imagery-style.js.
+
+Camera bearing and pitch are zero throughout: north is up and the view is
+vertical. Every destination explicitly resets padding; Kathmandu and education
+share the same campus-area target. The marker circle anchors to the coordinate,
+with its caption positioned separately so label height cannot move the pin.
+
+The map requests satellite tiles from EOX, font glyphs from OpenFreeMap, and
+elevation tiles from Mapterhorn. It does not need a private API key or collect visitor location.
 Full installed dependency notices are regenerated by npm run build and shipped
 as public/community-licenses.txt.

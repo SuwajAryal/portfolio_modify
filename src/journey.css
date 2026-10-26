@@ -30,13 +30,17 @@
   border-radius: 4px; font: inherit; font-size: .65rem; padding: .5rem .65rem; cursor: pointer; white-space: nowrap; }
 .journey-source { display: inline-block; margin-top: .7rem; font-size: .6rem; color: #a4c7c4;
   text-decoration: underline; text-underline-offset: 3px; }
-.campus-pin { text-align: center; color: #e6ca95; }
+.campus-pin { width:14px; height:14px; text-align: center; color: #e6ca95; }
 .campus-pin span { display: block; width: 14px; height: 14px; border: 3px solid #e6ca95;
   background: #17333b; border-radius: 50%; margin: auto; box-shadow: 0 0 0 7px #e6ca9533; }
-.campus-pin b { display: block; margin-top: .7rem; background: #08151fee; border: 1px solid #a99162;
+.campus-pin b { position:absolute; left:50%; top:22px; transform:translateX(-50%); white-space:nowrap;
+  background: #08151fee; border: 1px solid #a99162;
   padding: .3rem .55rem; border-radius: 3px; font-size: .65rem; font-weight: 500; }
-.journey-map .maplibregl-ctrl-bottom-right { z-index: 4; }
-.journey-map .maplibregl-ctrl-attrib { font-size: 9px; }
+.journey-map .maplibregl-ctrl-bottom-right { z-index:4; max-width:100%; }
+.journey-map .maplibregl-ctrl-attrib { font-size:10px; line-height:1.35; padding:4px 6px;
+  max-width:100%; background:#fffffff2; color:#17313a; }
+.journey-map .maplibregl-ctrl-attrib a { color:#17434d; }
+.journey-map .maplibregl-ctrl-attrib-inner { white-space:normal; overflow-wrap:anywhere; }
 .journey-copy .hero { padding: 8.5rem 0 5rem; min-height: 100svh; display: flex; background: none; overflow: visible; }
 .journey-copy .hero-layout { display: block; }
 .journey-copy .hero h1 { font-size: clamp(4rem,7.5vw,6.2rem); }

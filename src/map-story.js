@@ -1,10 +1,11 @@
 // Uses MapLibre's official scroll-to-location and terrain examples.
-// Map tiles/style: OpenFreeMap; underlying geographic data: OpenStreetMap.
+// Satellite imagery: EOX; terrain: Mapterhorn; overlays: Natural Earth.
 import { Map, Marker, setWorkerUrl } from 'maplibre-gl';
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { CHAPTERS, CAMPUS_CENTER } from './map-chapters';
 import { addNepalLandscape } from './nepal-landscape';
+import { IMAGERY_STYLE } from './imagery-style';
 
 setWorkerUrl(workerUrl);
 
@@ -29,10 +30,10 @@ export function mountMapStory() {
   try {
     map = new Map({
       container,
-      style: 'https://tiles.openfreemap.org/styles/liberty',
+      style: IMAGERY_STYLE,
       ...CHAPTERS[0].camera,
       interactive: false, // Scrolling controls the story; the map never traps input.
-      attributionControl: { compact: true },
+      attributionControl: { compact: false }, // Keep imagery credits visible in screenshots too.
       maxPixelRatio: 1.5,
     });
   } catch {
@@ -45,7 +46,8 @@ export function mountMapStory() {
   pin.className = 'campus-pin';
   pin.innerHTML = '<span></span><b>Pulchowk Campus</b>';
   pin.setAttribute('aria-hidden', 'true');
-  new Marker({ element: pin, anchor: 'bottom' }).setLngLat(CAMPUS_CENTER).addTo(map);
+  // The coordinate anchors to the circle, not the caption below it.
+  new Marker({ element: pin, anchor: 'center' }).setLngLat(CAMPUS_CENTER).addTo(map);
   pin.hidden = true;
   map.getCanvas().setAttribute('aria-hidden', 'true');
 
@@ -65,19 +67,23 @@ export function mountMapStory() {
     document.getElementById('nepal-legend').hidden = chapter.step >= 2;
     if (loaded) {
       setLandscapeChapter(chapter.step);
-      let camera = { ...chapter.camera };
+      let camera = { ...chapter.camera, pitch:0, bearing:0,
+        padding:{top:0,bottom:0,left:0,right:0} };
       if (chapter.countryWide) {
         // Fit the complete country on each screen, rather than a fixed zoom
         // which could crop Nepal on phones or make neighbouring countries dominate.
         const fitted = map.cameraForBounds([[80.04,26.32],[88.22,30.5]], {
-          padding: phone.matches ? { top:22, bottom:48, left:26, right:26 } : 42,
-          bearing: -8, maxZoom: 6.8,
+          padding: phone.matches ? { top:22, bottom:72, left:26, right:26 }
+            : {top:42,bottom:66,left:42,right:42},
+          bearing: 0, maxZoom: 6.8,
         });
-        if (fitted) camera = { ...camera, ...fitted, zoom: fitted.zoom - .1, pitch: phone.matches ? 0 : 18 };
+        if (fitted) camera = { ...camera, ...fitted, zoom: fitted.zoom - .1, pitch:0, bearing:0 };
       } else if (phone.matches && chapter.step === 1) camera.zoom = 6.6;
       map.stop();
       if (immediate || preference.matches) map.jumpTo(camera);
-      else map.flyTo({ ...camera, duration: chapter.step === 1 ? 2600 : 1900, curve: 1.25 });
+      // Direct camera interpolation avoids an arcing flight, changing rotation,
+      // or leftover padding that can make the next destination look offset.
+      else map.easeTo({ ...camera, duration: chapter.step === 1 ? 2200 : 1800 });
     }
   }
 
@@ -103,13 +109,6 @@ export function mountMapStory() {
 
   map.on('style.load', () => {
     map.setProjection({ type: 'mercator' });
-    // Keep the community style's place labels and buildings, while omitting
-    // optional POI icons whose sprite variants may not be hosted by the source.
-    for (const layer of map.getStyle().layers) {
-      if (layer.type === 'symbol' && layer.layout?.['icon-image']) {
-        map.setLayoutProperty(layer.id, 'icon-image', null);
-      }
-    }
   });
   map.on('load', async () => {
     loaded = true;
