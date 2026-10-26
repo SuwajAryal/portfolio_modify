@@ -1,0 +1,84 @@
+/* A sticky map accompanies the introduction, Nepal, and education chapters. */
+.story-journey { display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr);
+  gap: 4rem; max-width: 1320px; margin: auto; padding: 0 2.5rem; align-items: start; }
+.journey-copy { grid-column: 1; grid-row: 1; min-width: 0; }
+.journey-map { grid-column: 2; grid-row: 1; align-self: start; position: sticky;
+  top: 85px; height: calc(100svh - 110px); min-height: 440px; max-height: 950px;
+  margin-top: 95px; overflow: hidden; border: 1px solid #ffffff18; border-radius: 8px;
+  background: #0a1a25; }
+#journey-map-canvas { position: absolute; inset: 0 0 240px; width: 100%; }
+.journey-map-heading { position: absolute; z-index: 2; left: 1.5rem; right: 1.5rem; top: 1.5rem;
+  display: flex; justify-content: space-between; font-size: .6rem; letter-spacing: .15em; color: #d9e9e5;
+  text-shadow: 0 1px 5px #000; pointer-events: none; }
+.journey-map-caption { position: absolute; z-index: 2; bottom: 26px; left: 0; right: 0;
+  height: 215px; padding: 1rem 1.5rem .6rem;
+  background: #08151f; }
+.journey-kicker { font-size: .6rem; letter-spacing: .13em; color: #e3c490; }
+.journey-map-caption h2 { margin: .55rem 0; font-weight: 500; font-size: clamp(1.2rem,2vw,1.8rem);
+  letter-spacing: -.04em; color: #eff6f3; line-height: 1.2; }
+#journey-description { font-size: .75rem; line-height: 1.7; max-width: 42ch; color: #b8cdd3; }
+.journey-stops { display: flex; gap: .3rem; margin: 1.1rem 0; }
+.journey-stops span { height: 2px; flex: 1; background: #ffffff25; }
+.journey-stops span.active { background: #b2e8db; }
+.journey-actions { display: flex; align-items: center; justify-content: space-between; gap: .8rem; }
+#journey-hint { font-size: .6rem; color: #a5bfca; }
+#journey-pause { border: 1px solid #ffffff40; background: #102934; color: #cae4e0;
+  border-radius: 4px; font: inherit; font-size: .65rem; padding: .5rem .65rem; cursor: pointer; white-space: nowrap; }
+.journey-source { display: inline-block; margin-top: .7rem; font-size: .6rem; color: #a4c7c4;
+  text-decoration: underline; text-underline-offset: 3px; }
+.campus-pin { text-align: center; color: #e6ca95; }
+.campus-pin span { display: block; width: 14px; height: 14px; border: 3px solid #e6ca95;
+  background: #17333b; border-radius: 50%; margin: auto; box-shadow: 0 0 0 7px #e6ca9533; }
+.campus-pin b { display: block; margin-top: .7rem; background: #08151fee; border: 1px solid #a99162;
+  padding: .3rem .55rem; border-radius: 3px; font-size: .65rem; font-weight: 500; }
+.journey-map .maplibregl-ctrl-bottom-right { z-index: 4; }
+.journey-map .maplibregl-ctrl-attrib { font-size: 9px; }
+.journey-copy .hero { padding: 8.5rem 0 5rem; min-height: 100svh; display: flex; background: none; overflow: visible; }
+.journey-copy .hero-layout { display: block; }
+.journey-copy .hero h1 { font-size: clamp(4rem,7.5vw,6.2rem); }
+.journey-copy .scroll-cue { left: 0; bottom: 2rem; }
+.journey-copy > .section { padding: 5rem 0; scroll-margin-top: 85px; }
+.journey-copy #about { min-height: 100svh; }
+.journey-copy .about-grid { display: block; }
+.journey-copy .about-sidebar { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; margin-top: 2rem; }
+.journey-copy .about-stat { padding: 1rem; min-width: 0; }
+.journey-copy .about-stat-label { font-size: .7rem; }
+.journey-copy .section-header { margin-bottom: 1.7rem; }
+.education-intro { color: #9fb6c1; font-size: .85rem; line-height: 1.9; padding-bottom: 5rem; }
+.education-step { min-height: 75svh; padding-top: 2rem; scroll-margin-top: 120px; }
+.education-step .card { transition: border-color .3s, background .3s; }
+.education-step.map-chapter-active .card { border-color: #87cabc88; background: #122b36; }
+.education-step .card-top { align-items: flex-start; gap: .8rem; }
+.education-step .card-title { font-size: 1.35rem; line-height: 1.5; }
+.education-step .card-institution { margin-top: 1rem; }
+@media (max-width: 1000px) and (min-width: 769px) {
+  .story-journey { padding: 0 1.5rem; gap: 2rem; }
+  .journey-map-caption { padding-inline: 1rem; }
+  .journey-actions { flex-wrap: wrap; }
+  .journey-copy .hero h1 { font-size: 4.2rem; }
+}
+@media (max-width: 768px) {
+  :root { --mobile-map-height: clamp(280px, 42svh, 390px); }
+  .story-journey { display: block; padding: 0; }
+  .journey-map { margin: 58px 0 0; border-radius: 0; border-inline: 0; top: 58px;
+    height: var(--mobile-map-height); min-height: 0; max-height: none; z-index: 20; }
+  .journey-copy { padding: 0 1.4rem; position: relative; }
+  .journey-map-heading { left: 1rem; right: 1rem; top: .7rem; font-size: .55rem; }
+  .journey-map-caption { padding: 2rem 1rem .4rem; bottom: 24px; }
+  #journey-map-canvas { bottom: 150px; }
+  .journey-map-caption { height: 126px; padding-top: .5rem; }
+  .journey-map-caption h2 { margin: .2rem 0; font-size: 1.05rem; }
+  #journey-description { display: none; }
+  .journey-kicker { font-size: .55rem; }
+  .journey-stops { margin: .5rem 0; }
+  .journey-actions { gap: .5rem; }
+  #journey-hint { font-size: .55rem; }
+  #journey-pause { padding: .35rem .5rem; min-height: 32px; }
+  .journey-source { position: absolute; right: 1rem; top: -.1rem; font-size: .55rem; }
+  .journey-copy .hero { padding: 3rem 0 4rem; min-height: 78svh;
+    scroll-margin-top: calc(var(--mobile-map-height) + 70px); }
+  .journey-copy .hero h1 { font-size: clamp(4.3rem,17vw,6rem); }
+  .journey-copy > .section { padding: 3rem 0; scroll-margin-top: calc(var(--mobile-map-height) + 70px); }
+  .education-intro { padding-bottom: 5rem; }
+  .education-step { min-height: 90svh; padding-top: 1rem; scroll-margin-top: calc(var(--mobile-map-height) + 80px); }
+}

@@ -1,37 +1,43 @@
-# Suwaj's portfolio — Earth and rivers
+# Suwaj's portfolio — a scroll-driven education journey
 
-A separate experiment for [Suwaj Aryal's portfolio](https://suwajaryal.github.io).
-This version uses community software and public-domain map data. No AI-generated
-images, models, textures, or hand-built terrain are used.
+The map follows the page: **Earth → Nepal → Kathmandu Valley → Pulchowk Campus**.
+As visitors scroll through the bachelor’s and master’s cards, the camera settles
+on the same campus with a different framing. Scrolling upward reverses the story.
 
-## What we are combining
+Both degrees are at Pulchowk Campus according to the portfolio data. No additional
+schools, degree-specific buildings, or personal history have been invented.
 
-| Source | What it contributes |
-| --- | --- |
-| React Globe.gl + Three.js | Existing interactive globe, camera, atmosphere, country polygons, and river paths |
-| Natural Earth | Actual country boundaries and river centre lines |
-| Motion | Subtle section entrances, respecting reduced-motion preferences |
-| Lucide | Consistent open-source interface icons |
+## Community components
 
-The globe follows the official React Globe.gl country example and documented path
-layer. All sources and notices are listed in [SOURCES.md](SOURCES.md) and on the
-website's credits page. Project preferences are saved in [CONTRIBUTING.md](CONTRIBUTING.md).
+- MapLibre GL JS: globe projection, street map rendering, and camera flights.
+- Official MapLibre scroll-to-location example: the chapter-based approach.
+- OpenFreeMap Liberty: the existing map style and hosted vector tiles.
+- OpenStreetMap/OpenMapTiles: detailed roads, place names, and geographic data.
+- Natural Earth: the optional Nepal outline at country scale.
+- Motion and Lucide: section transitions and interface icons.
 
-## Try the features
+This version uses ordinary JavaScript and CSS. The previous React globe has been
+removed because MapLibre can handle both the distant globe and the campus map.
+No AI-generated images, models, or textures are used. See SOURCES.md and the
+website's credits page for source links and notices.
 
-- Drag the globe or use the west/east arrow buttons.
-- Choose Nepal or World for a preset view.
-- Select the Ganges, Brahmaputra, Nile, or Amazon to focus on that river.
-- Toggle Rivers and Borders independently.
-- Enable auto-rotation if desired. It is off initially and disabled for reduced motion.
-- Select a country or river on the globe to focus it.
+## How it behaves
 
-The globe pauses its rendering when off-screen or when its browser tab is hidden.
-Mouse-wheel zoom is disabled so visitors can scroll the portfolio normally.
-Keyboard buttons provide alternatives to dragging the globe.
+1. Introduction: a globe view.
+2. About: the camera flies toward Nepal.
+3. Education heading: the Kathmandu Valley comes into view.
+4. Bachelor’s card: the camera moves into the Pulchowk Campus area.
+5. Master’s card: the same campus remains in focus for postgraduate study.
 
-Natural Earth's small-scale maps omit many smaller rivers. This is geographic
-exploration, not a hydraulic simulation, discharge visualisation, or survey map.
+The map stays beside the story on desktop and above the reading area on phones.
+There are no drag/zoom controls: ordinary page scrolling controls the destinations.
+Pause journey freezes the camera; Resume catches up with the current section.
+Reduced-motion preferences change destinations immediately without camera flights.
+The map leaves the screen after Education, and the remaining portfolio continues.
+
+Live map tiles need an internet connection. The campus pin is an approximate
+campus-area location, not a surveyed building or department location. If map tiles
+or WebGL are unavailable, the portfolio text remains readable.
 
 ## Run locally
 
@@ -42,54 +48,33 @@ npm install
 npm run dev
 ```
 
-Open the Local address printed by Vite. On Windows, use `npm.cmd` if PowerShell
-blocks the `npm` script.
+Open the Local address printed by Vite. On Windows, use npm.cmd if PowerShell
+blocks the npm script.
 
 ```sh
 npm run build
 npm run preview
 ```
 
-The build creates `dist`, including geographic data and community license notices.
-The original portfolio and this experiment have separate repositories. This
-repository does not automatically publish a live website.
+The build creates dist and includes community license notices. This experiment
+repository does not automatically publish a website or change the original site.
 
 ## Where to edit
 
 | File | Purpose |
 | --- | --- |
-| `data.js` | Your biography, projects, education, skills, and contact information |
-| `index.html` | Page structure and the globe container |
-| `style.css` | Original base styles |
-| `src/premium.css` | Updated layout, typography, globe controls, and responsive styles |
-| `src/portfolio.js` | Fills the page from data.js; connects Motion and Lucide |
-| `src/globe.jsx` | Connects the existing globe component to map data and controls |
-| `src/geographic-data.js` | Reads GeoJSON; splits river lines into paths the library accepts |
-| `src/scene-loader.js` | Loads the optional globe separately from the portfolio content |
-| `public/data/` | Natural Earth datasets copied unchanged from the cited revision |
-| `public/sources.html` | Visitor-facing credits |
-| `scripts/write-notices.mjs` | Collects installed dependency license texts for the build |
-| `public/Resume_suwaj.pdf` | Original CV, unchanged |
+| data.js | Your biography, education, projects, and contact information |
+| index.html | Story structure, map container, and reading sections |
+| src/map-chapters.js | Destinations, zoom levels, captions, and section selectors |
+| src/map-story.js | Connects scroll position to MapLibre camera flights |
+| src/journey.css | Sticky map and responsive story layout |
+| src/portfolio.js | Fills the portfolio and education cards; connects Motion/Lucide |
+| src/premium.css | General typography, colours, and page styling |
+| src/scene-loader.js | Loads the optional map separately from the main content |
+| public/sources.html | Visitor-facing credits |
+| SOURCES.md | Sources, dataset revision, attribution, and location notes |
+| CONTRIBUTING.md | Your preference for community components and no AI-generated visuals |
 
-React is still JavaScript. Here it controls the Earth explorer; the rest of the
-portfolio remains ordinary HTML and JavaScript. React Globe.gl already uses
-Three.js internally, so React Three Fiber is not needed for this component.
-
-## Learn by changing one thing
-
-1. In `src/globe.jsx`, change `NEPAL.altitude`: a smaller value moves closer.
-2. Change `atmosphereColor` to adjust the globe's halo.
-3. Change the river and country colour settings without changing the geography.
-4. Add another named river to `riverOptions` if that name exists in the source data.
-5. In `src/premium.css`, change the page spacing or typography.
-
-This is integration code: the community libraries provide the rendering and
-interaction systems; our modules connect them to this portfolio.
-
-## Suggested next community integrations
-
-- [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/): a detailed map of a real project, with your watershed boundaries or flood extents exported from GIS as GeoJSON. Unlike the global overview, this would let visitors inspect an actual study area. Map tiles and any additional datasets need their own sources and attribution.
-- [Plotly.js](https://plotly.com/javascript/): interactive hydrographs, sediment rating curves, or model-versus-observation plots using your own research results.
-
-These are suggestions, not installed features. They would add evidence of your
-engineering work. We should select actual project data before building them.
+To add another school later, add its real education entry in data.js and a
+matching destination in src/map-chapters.js. The campus coordinate is defined
+once in that file, so both existing degrees share it.

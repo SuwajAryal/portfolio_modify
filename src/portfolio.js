@@ -40,8 +40,9 @@ import { createIcons, MapPin, Mail, Phone, ArrowUpRight, ArrowDown, Download,
   `).join('');
 
   // ── Education ──
-  $('eduTimeline').innerHTML = d.education.map(e => `
-    <div class="tl-item">
+  // Read the education chapter chronologically: bachelor’s, then master’s.
+  $('eduTimeline').innerHTML = d.education.map((entry, index) => ({ entry, index })).reverse().map(({ entry: e, index }) => `
+    <div class="tl-item education-step" data-education-index="${index}">
       <div class="tl-dot"></div>
       <div class="card">
         <div class="card-top">

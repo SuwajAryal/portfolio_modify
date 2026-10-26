@@ -1,55 +1,48 @@
-# Community sources and asset provenance
+# Community sources and provenance
 
-No AI-generated images, textures, models, or terrain are used in this version.
-The old custom terrain has been removed. The globe is an integration of existing
-open-source software with public-domain geographic data.
+No AI-generated images, models, textures, or terrain are used.
 
-| Part | Community source | License / use |
+| Part | Source | License / attribution |
 | --- | --- | --- |
-| Interactive globe, camera controls, map layers | [React Globe.gl](https://github.com/vasturiano/react-globe.gl) by Vasco Asturiano | MIT; installed package version is pinned in package-lock.json |
-| Country-layer integration pattern | [Official choropleth example](https://github.com/vasturiano/react-globe.gl/blob/master/example/choropleth-countries/index.html) | MIT; adapted data loading, polygons, hover and label pattern. No GDP/population visualisation or textures copied. |
-| River line layer API | [Official paths documentation](https://github.com/vasturiano/react-globe.gl#paths-layer) | MIT; real river coordinates replace the example's random paths |
-| 3D rendering | [Three.js](https://github.com/mrdoob/three.js) | MIT; used by Globe.gl |
-| Country polygons | [Natural Earth 1:110m countries](https://github.com/nvkelso/natural-earth-vector/blob/ca96624a56bd078437bca8184e78163e5039ad19/geojson/ne_110m_admin_0_countries.geojson) | Public domain; downloaded unchanged to public/data/countries.geojson |
-| River lines | [Natural Earth 1:50m rivers](https://github.com/nvkelso/natural-earth-vector/blob/ca96624a56bd078437bca8184e78163e5039ad19/geojson/ne_50m_rivers_lake_centerlines.geojson) | Public domain; downloaded unchanged to public/data/rivers.geojson |
-| Section transitions | [Motion](https://motion.dev/docs/inview) | MIT; documented inView + animate integration |
-| Interface icons | [Lucide](https://lucide.dev/) | ISC, with Feather-derived notices included in the package license |
-| Page typeface | [Inter](https://github.com/rsms/inter) via Google Fonts | SIL Open Font License 1.1; existing portfolio dependency |
+| Map renderer and globe projection | https://github.com/maplibre/maplibre-gl-js | BSD-3-Clause; full installed notice included in public/community-licenses.txt |
+| Scroll-driven camera approach | https://maplibre.org/maplibre-gl-js/docs/examples/fly-to-a-location-based-on-scroll-position/ | Official MapLibre example, adapted to this portfolio's sections and degree entries |
+| Globe-to-detailed-map rendering | https://maplibre.org/maplibre-gl-js/docs/examples/display-a-globe-with-a-vector-map/ | Official MapLibre example |
+| Hosted Liberty map style and tiles | https://openfreemap.org/quick_start/ | OpenFreeMap; built-in source attribution preserved |
+| Map data | https://www.openstreetmap.org/copyright | OpenStreetMap contributors, ODbL; source attribution remains visible on the map |
+| Vector tile schema / cartography | https://openmaptiles.org/ | OpenMapTiles attribution supplied by the hosted source |
+| Optional Nepal outline | https://www.naturalearthdata.com/ | Public domain; downloaded country dataset unchanged |
+| Section transitions | https://motion.dev/docs/inview | MIT |
+| Interface icons | https://lucide.dev/ | ISC, including Feather-derived notices |
+| Typeface | https://rsms.me/inter/ | SIL Open Font License; served via Google Fonts |
 
-Natural Earth revision: `ca96624a56bd078437bca8184e78163e5039ad19`.
-Its [terms](https://www.naturalearthdata.com/about/terms-of-use/) explicitly allow
-modification and redistribution of its public-domain geographic data.
+The Natural Earth countries file is from revision
+ca96624a56bd078437bca8184e78163e5039ad19:
+https://github.com/nvkelso/natural-earth-vector/blob/ca96624a56bd078437bca8184e78163e5039ad19/geojson/ne_110m_admin_0_countries.geojson
 
-The data loader only splits MultiLineString features into individual paths and
-extracts river names for the interface. Source files remain unchanged. Natural
-Earth is generalised cartography: it omits small rivers and is not a survey,
-catchment delineation, discharge dataset, or hydraulic simulation. Boundary
-presentation follows the source dataset. River selections follow coordinates
-from that dataset; Kathmandu's marker is an approximate city location.
+Natural Earth terms: https://www.naturalearthdata.com/about/terms-of-use/
+Only the Nepal polygon is displayed, and only at country scale. Street and
+campus detail comes from the live OpenFreeMap/OpenStreetMap tiles instead.
 
-## React Globe.gl example license
+## Education and campus location
 
-MIT License
+Both degree institutions are taken directly from data.js. The official campus
+site is https://pcampus.edu.np/ and its contact page is
+https://pcampus.edu.np/contact-us/ .
 
-Copyright (c) 2019 Vasco Asturiano
+The camera and marker use an approximate centre within the Pulchowk Campus area
+in Lalitpur. They do not identify a particular department, classroom, building,
+or a surveyed position. The two degree chapters intentionally share the same
+campus coordinate. No route between two different campuses is implied.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+## Integration changes
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Our code connects chapter positions to MapLibre flyTo/jumpTo, builds the sticky
+reading layout, adds a campus label, and honours pause and reduced-motion settings.
+The community library renders the globe and detailed map; the existing hosted
+Liberty style supplies the cartography. The old React Globe.gl explorer is
+removed in this revision and remains available only in Git history.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-Full installed dependency license texts are assembled into
-`public/community-licenses.txt` by `npm run build` and copied into `dist`.
+The map requests remote style, font, sprite, and vector tile resources from
+OpenFreeMap. It does not need a private API key or collect visitor location.
+Full installed dependency notices are regenerated by npm run build and shipped
+as public/community-licenses.txt.
