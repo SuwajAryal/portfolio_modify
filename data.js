@@ -75,7 +75,7 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
       period: "2024 to 2026",
       status: "Completed",
       highlights: [
-        "Aggregate: 86%; within the top 5%",
+        "Aggregate: 86%",
         "Merit scholarship through national-level entrance",
         "Focus areas: Hydraulic modelling, sediment dynamics, physical adherence and river engineering",
         "Researching physics-informed machine learning models for physical consistency and reliability",
@@ -87,7 +87,7 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
       period: "2018 to 2023",
       status: "Completed",
       highlights: [
-        "Aggregate: 72.5%; within the top 20%",
+        "Aggregate: 72.5%",
         "Full merit scholarship through national-level entrance",
         "Final Year Project: Complete irrigation system design from headwork to canal network",
       ],
