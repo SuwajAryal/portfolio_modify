@@ -224,11 +224,13 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
   publications: [
     {
       type: "Accepted for publication · Journal article",
+      peerReviewed: true,
       title: "Improving suspended sediment load prediction using an interpretable hybrid SWAT–XGBoost framework: Marsyangdi River Basin, Nepal",
       description: "Ghimire, S., Bist, T., Aryal, S., Shrish, I. K., & Regmi, R. K. Journal of Hydrology: Regional Studies. Accepted for publication on 23 November 2026.",
     },
     {
       type: "Published Conference Paper · September 2026",
+      peerReviewed: true,
       title: "Suspended Sediment Concentration and Load Prediction in the West Rapti River Basin: A Comparative Study of Machine Learning Approaches",
       description: "Aryal, S., & Regmi, R. K. (2026). Everest Advances in Science and Technology, 2(2), 44 to 61. CEISD 2026. Comparative sediment prediction research covering machine learning, deep learning, and tree-based approaches in Himalayan catchments.",
       url: "https://doi.org/10.3126/east.v2i2.99464",

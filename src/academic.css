@@ -65,6 +65,9 @@ body > .section { padding:58px clamp(28px,4.5vw,72px) 24px; }
 #publicationsGrid { grid-template-columns:minmax(0,1fr); gap:0; }
 #publicationsGrid .research-card { border:0; border-bottom:1px solid var(--line); border-radius:0; background:none; padding:24px 0; }
 #publicationsGrid .research-title { max-width:75ch; }
+.publication-meta { display:flex; justify-content:space-between; align-items:center; gap:10px 20px; flex-wrap:wrap; }
+.publication-meta .research-type { margin:0; }
+.peer-review-badge { display:inline-flex; align-items:center; gap:6px; flex-shrink:0; padding:5px 11px; border:1px solid #a6bdb1; border-radius:999px; background:#edf3ec; color:#285c57; font-size:.76rem; font-weight:600; line-height:1.4; letter-spacing:.01em; }
 .research-evidence,.card-period,.experience-year { font-variant-numeric:tabular-nums; }
 #researchGrid .research-card:first-child { grid-column:1/-1; padding:30px 32px; background:#f2f5ef; border-color:#b7c8b8; }
 .research-type { font-size:.75rem; line-height:1.7; letter-spacing:.06em; color:var(--accent); font-weight:600; }

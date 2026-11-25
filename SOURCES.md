@@ -134,3 +134,7 @@ SLC and +2 details were supplied by Suwaj. The Kapan and Bagbazar chapters now u
 Reliance International Academy: [85.3544026, 27.7300081], resolved from the school’s official contact map at https://riaschool.edu.np/contact/ (Milan Chowk Galli, Budhanilkantha). The Reliance Education Network distinguishes this Kapan school from its Saraswatinagar +2 campus: https://www.ren.org.np/.
 
 Kathmandu Model College (+2): [85.3190, 27.7064], approximate Bagbazar campus position. The +2 programme and address are confirmed at https://ktmmodelcollege.edu.np/contact/; the public campus listing is https://nepal.worldplaces.me/schools-in-kathmandu/32222712-kathmandu-model-college-official.html. These pins identify campuses, not surveyed entrances.
+
+## Peer review labels
+
+The accepted Journal of Hydrology: Regional Studies article is marked peer reviewed on the basis of the supplied acceptance letter, which records editor and reviewer comments. The published EAST paper is also marked peer reviewed; [the publisher's journal page](https://www.eemc.edu.np/public/journal/index.html) describes EAST as a peer-reviewed journal. The conference presentation and manuscripts are not assigned this badge. Acceptance status and publication status remain separate from the review label.
