@@ -219,9 +219,14 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
   // ──────────────────────────────────────────────────
   //  RESEARCH INTERESTS
   // ──────────────────────────────────────────────────
-  // Publication status follows the supplied academic CV. Manuscripts stay separate
-  // from the published article; no public preprint URLs were supplied.
+  // Publication status follows the supplied CV and acceptance letter.
+  // Accepted papers have no DOI link until one has been assigned and verified.
   publications: [
+    {
+      type: "Accepted for publication · Journal article",
+      title: "Improving suspended sediment load prediction using an interpretable hybrid SWAT–XGBoost framework: Marsyangdi River Basin, Nepal",
+      description: "Ghimire, S., Bist, T., Aryal, S., Shrish, I. K., & Regmi, R. K. Journal of Hydrology: Regional Studies. Accepted for publication on 23 November 2026.",
+    },
     {
       type: "Published Conference Paper · September 2026",
       title: "Suspended Sediment Concentration and Load Prediction in the West Rapti River Basin: A Comparative Study of Machine Learning Approaches",
@@ -249,7 +254,7 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
   ],
   languages: [
     { title: "Nepali", description: "Native proficiency." },
-    { title: "English", description: "Professional working proficiency in writing and speaking; continuing to develop academic writing competency." },
+    { title: "English", description: "IELTS 7.0." },
   ],
   affiliations: [
     { title: "Nepal Engineering Council (NEC)", description: "Member and licensed civil engineer." },
