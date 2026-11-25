@@ -256,7 +256,7 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
   ],
   languages: [
     { title: "Nepali", description: "Native proficiency." },
-    { title: "English", description: "IELTS 7.0." },
+    { title: "English", description: "Professional working proficiency in writing and speaking; continuing to develop academic writing competency." },
   ],
   affiliations: [
     { title: "Nepal Engineering Council (NEC)", description: "Member and licensed civil engineer." },
