@@ -93,7 +93,7 @@ import { createIcons, MapPin, Mail, Phone, ArrowUpRight, ArrowDown, Download,
   // Reuse the same readable card layout for the additional academic sections.
   function academicCard(entry) {
     return `<article class="card research-card">
-      ${entry.type ? `<div class="publication-meta"><p class="research-type">${entry.type}</p>${entry.peerReviewed ? '<span class="peer-review-badge"><span aria-hidden="true">✓</span> Peer reviewed</span>' : ''}</div>` : ''}
+      ${entry.type ? `<div class="publication-meta"><p class="research-type">${entry.type}</p>${entry.peerReviewed ? '<span class="peer-review-badge">Peer reviewed</span>' : ''}</div>` : ''}
       <h3 class="research-title">${entry.title}</h3>
       <p class="research-desc">${entry.description}</p>
       ${entry.url ? `<a class="academic-link" href="${entry.url}" target="_blank" rel="noopener noreferrer">${entry.linkLabel} ↗</a>` : ''}
