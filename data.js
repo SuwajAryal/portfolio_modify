@@ -88,7 +88,7 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
       status: "Completed",
       highlights: [
         "Aggregate: 72.5%",
-        "Full merit scholarship through national-level entrance",
+        "Fully funded merit scholarship through the national-level IOE entrance examination",
         "Final Year Project: Complete irrigation system design from headwork to canal network",
       ],
     },
@@ -250,7 +250,7 @@ Beyond my academic pursuits, I love to watch and play football. I find that enga
   ],
   honors: [
     { title: "Fully Funded M.Sc. Scholarship", description: "Government scholarship for graduate study, awarded through top-tier placement in the national engineering competitive examination." },
-    { title: "Undergraduate Merit Scholarship", description: "Highly competitive, fully funded government seat for the bachelor’s programme through the nationwide IOE entrance examination." },
+    { title: "Fully Funded B.E. Scholarship", description: "Fully funded government scholarship for undergraduate civil engineering study, awarded through the nationwide IOE entrance examination." },
     { title: "Mahatma Gandhi Scholarship", description: "Merit-based scholarship from the Embassy of India, Kathmandu, recognizing academic performance during higher secondary education (+2)." },
     { title: "Top 10 · National Physics and Mathematics Olympiad", description: "Placed among the top 10 nationwide in a quantitative problem-solving competition at IOE, Pulchowk Campus, among hundreds of secondary science students." },
   ],
